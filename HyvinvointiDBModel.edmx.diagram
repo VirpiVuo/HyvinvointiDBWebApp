@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="d9c0b6e90c66412db8c18dd679e326ef" Name="Diagram1">
+        <EntityTypeShape EntityType="HyvinvointiDBModel.Hymynaama" Width="1.5" PointX="3" PointY="1" IsExpanded="true" />
+        <EntityTypeShape EntityType="HyvinvointiDBModel.Kirjautuminen" Width="1.5" PointX="5.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="HyvinvointiDBModel.Palaute" Width="1.5" PointX="3" PointY="3.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="HyvinvointiDBModel.Tyonantaja" Width="1.5" PointX="5.75" PointY="3.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="HyvinvointiDBModel.Tyontekijat" Width="1.5" PointX="0.75" PointY="2.25" IsExpanded="true" />
+        <AssociationConnector Association="HyvinvointiDBModel.FK__Hymynaama__Tyont__693CA210" ManuallyRouted="false" />
+        <AssociationConnector Association="HyvinvointiDBModel.FK__Palaute__Tyontek__6A30C649" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

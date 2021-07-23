@@ -48,7 +48,7 @@ namespace Hyvinvointisovellus.Controllers
             {
                 ViewBag.LoginMessage = "Login unsuccessfull";
                 ViewBag.LoggedStatus = "Out";
-                LoginModel.LoginErrorMessage = "Tuntematon käyttäjätunnus tai salasana.";
+                //LoginModel.LoginErrorMessage = "Tuntematon käyttäjätunnus tai salasana.";
                 return View("Login", LoginModel);
             }
         }

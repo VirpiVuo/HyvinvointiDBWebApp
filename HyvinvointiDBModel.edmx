@@ -1,0 +1,246 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="HyvinvointiDBModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012.Azure" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="Hymynaama">
+          <Key>
+            <PropertyRef Name="HymynaamaID" />
+          </Key>
+          <Property Name="HymynaamaID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="TyontekijaID" Type="int" />
+          <Property Name="Hymynaama" Type="int" />
+        </EntityType>
+        <EntityType Name="Kirjautuminen">
+          <Key>
+            <PropertyRef Name="KirjautumisID" />
+          </Key>
+          <Property Name="KirjautumisID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Kayttajatunnus" Type="nvarchar" MaxLength="50" />
+          <Property Name="Salasana" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="Palaute">
+          <Key>
+            <PropertyRef Name="PalauteID" />
+          </Key>
+          <Property Name="PalauteID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="TyontekijaID" Type="int" />
+          <Property Name="Palaute" Type="varchar" MaxLength="500" />
+        </EntityType>
+        <EntityType Name="Tyonantaja">
+          <Key>
+            <PropertyRef Name="TyonantajaID" />
+          </Key>
+          <Property Name="TyonantajaID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Tyonantaja" Type="varchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="Tyontekijat">
+          <Key>
+            <PropertyRef Name="TyontekijaID" />
+          </Key>
+          <Property Name="TyontekijaID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Etuimi" Type="varchar" MaxLength="50" />
+          <Property Name="Sukunimi" Type="varchar" MaxLength="50" />
+        </EntityType>
+        <Association Name="FK__Hymynaama__Tyont__693CA210">
+          <End Role="Tyontekijat" Type="Self.Tyontekijat" Multiplicity="0..1" />
+          <End Role="Hymynaama" Type="Self.Hymynaama" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Tyontekijat">
+              <PropertyRef Name="TyontekijaID" />
+            </Principal>
+            <Dependent Role="Hymynaama">
+              <PropertyRef Name="TyontekijaID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Palaute__Tyontek__6A30C649">
+          <End Role="Tyontekijat" Type="Self.Tyontekijat" Multiplicity="0..1" />
+          <End Role="Palaute" Type="Self.Palaute" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Tyontekijat">
+              <PropertyRef Name="TyontekijaID" />
+            </Principal>
+            <Dependent Role="Palaute">
+              <PropertyRef Name="TyontekijaID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="HyvinvointiDBModelStoreContainer">
+          <EntitySet Name="Hymynaama" EntityType="Self.Hymynaama" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Kirjautuminen" EntityType="Self.Kirjautuminen" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Palaute" EntityType="Self.Palaute" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Tyonantaja" EntityType="Self.Tyonantaja" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Tyontekijat" EntityType="Self.Tyontekijat" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK__Hymynaama__Tyont__693CA210" Association="Self.FK__Hymynaama__Tyont__693CA210">
+            <End Role="Tyontekijat" EntitySet="Tyontekijat" />
+            <End Role="Hymynaama" EntitySet="Hymynaama" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Palaute__Tyontek__6A30C649" Association="Self.FK__Palaute__Tyontek__6A30C649">
+            <End Role="Tyontekijat" EntitySet="Tyontekijat" />
+            <End Role="Palaute" EntitySet="Palaute" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="HyvinvointiDBModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="Hymynaama">
+          <Key>
+            <PropertyRef Name="HymynaamaID" />
+          </Key>
+          <Property Name="HymynaamaID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="TyontekijaID" Type="Int32" />
+          <Property Name="Hymynaama1" Type="Int32" />
+          <NavigationProperty Name="Tyontekijat" Relationship="Self.FK__Hymynaama__Tyont__693CA210" FromRole="Hymynaama" ToRole="Tyontekijat" />
+        </EntityType>
+        <EntityType Name="Kirjautuminen">
+          <Key>
+            <PropertyRef Name="KirjautumisID" />
+          </Key>
+          <Property Name="KirjautumisID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Kayttajatunnus" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Salasana" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="Palaute">
+          <Key>
+            <PropertyRef Name="PalauteID" />
+          </Key>
+          <Property Name="PalauteID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="TyontekijaID" Type="Int32" />
+          <Property Name="Palaute1" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="Tyontekijat" Relationship="Self.FK__Palaute__Tyontek__6A30C649" FromRole="Palaute" ToRole="Tyontekijat" />
+        </EntityType>
+        <EntityType Name="Tyonantaja">
+          <Key>
+            <PropertyRef Name="TyonantajaID" />
+          </Key>
+          <Property Name="TyonantajaID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Tyonantaja1" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="Tyontekijat">
+          <Key>
+            <PropertyRef Name="TyontekijaID" />
+          </Key>
+          <Property Name="TyontekijaID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Etuimi" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Sukunimi" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="Hymynaama" Relationship="Self.FK__Hymynaama__Tyont__693CA210" FromRole="Tyontekijat" ToRole="Hymynaama" />
+          <NavigationProperty Name="Palaute" Relationship="Self.FK__Palaute__Tyontek__6A30C649" FromRole="Tyontekijat" ToRole="Palaute" />
+        </EntityType>
+        <Association Name="FK__Hymynaama__Tyont__693CA210">
+          <End Role="Tyontekijat" Type="Self.Tyontekijat" Multiplicity="0..1" />
+          <End Role="Hymynaama" Type="Self.Hymynaama" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Tyontekijat">
+              <PropertyRef Name="TyontekijaID" />
+            </Principal>
+            <Dependent Role="Hymynaama">
+              <PropertyRef Name="TyontekijaID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Palaute__Tyontek__6A30C649">
+          <End Role="Tyontekijat" Type="Self.Tyontekijat" Multiplicity="0..1" />
+          <End Role="Palaute" Type="Self.Palaute" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Tyontekijat">
+              <PropertyRef Name="TyontekijaID" />
+            </Principal>
+            <Dependent Role="Palaute">
+              <PropertyRef Name="TyontekijaID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="HyvinvointiDBEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="Hymynaama" EntityType="Self.Hymynaama" />
+          <EntitySet Name="Kirjautuminen" EntityType="Self.Kirjautuminen" />
+          <EntitySet Name="Palaute" EntityType="Self.Palaute" />
+          <EntitySet Name="Tyonantaja" EntityType="Self.Tyonantaja" />
+          <EntitySet Name="Tyontekijat" EntityType="Self.Tyontekijat" />
+          <AssociationSet Name="FK__Hymynaama__Tyont__693CA210" Association="Self.FK__Hymynaama__Tyont__693CA210">
+            <End Role="Tyontekijat" EntitySet="Tyontekijat" />
+            <End Role="Hymynaama" EntitySet="Hymynaama" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Palaute__Tyontek__6A30C649" Association="Self.FK__Palaute__Tyontek__6A30C649">
+            <End Role="Tyontekijat" EntitySet="Tyontekijat" />
+            <End Role="Palaute" EntitySet="Palaute" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="HyvinvointiDBModelStoreContainer" CdmEntityContainer="HyvinvointiDBEntities">
+          <EntitySetMapping Name="Hymynaama">
+            <EntityTypeMapping TypeName="HyvinvointiDBModel.Hymynaama">
+              <MappingFragment StoreEntitySet="Hymynaama">
+                <ScalarProperty Name="HymynaamaID" ColumnName="HymynaamaID" />
+                <ScalarProperty Name="TyontekijaID" ColumnName="TyontekijaID" />
+                <ScalarProperty Name="Hymynaama1" ColumnName="Hymynaama" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Kirjautuminen">
+            <EntityTypeMapping TypeName="HyvinvointiDBModel.Kirjautuminen">
+              <MappingFragment StoreEntitySet="Kirjautuminen">
+                <ScalarProperty Name="KirjautumisID" ColumnName="KirjautumisID" />
+                <ScalarProperty Name="Kayttajatunnus" ColumnName="Kayttajatunnus" />
+                <ScalarProperty Name="Salasana" ColumnName="Salasana" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Palaute">
+            <EntityTypeMapping TypeName="HyvinvointiDBModel.Palaute">
+              <MappingFragment StoreEntitySet="Palaute">
+                <ScalarProperty Name="PalauteID" ColumnName="PalauteID" />
+                <ScalarProperty Name="TyontekijaID" ColumnName="TyontekijaID" />
+                <ScalarProperty Name="Palaute1" ColumnName="Palaute" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Tyonantaja">
+            <EntityTypeMapping TypeName="HyvinvointiDBModel.Tyonantaja">
+              <MappingFragment StoreEntitySet="Tyonantaja">
+                <ScalarProperty Name="TyonantajaID" ColumnName="TyonantajaID" />
+                <ScalarProperty Name="Tyonantaja1" ColumnName="Tyonantaja" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Tyontekijat">
+            <EntityTypeMapping TypeName="HyvinvointiDBModel.Tyontekijat">
+              <MappingFragment StoreEntitySet="Tyontekijat">
+                <ScalarProperty Name="TyontekijaID" ColumnName="TyontekijaID" />
+                <ScalarProperty Name="Etuimi" ColumnName="Etuimi" />
+                <ScalarProperty Name="Sukunimi" ColumnName="Sukunimi" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="false" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>
