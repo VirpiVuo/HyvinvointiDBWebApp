@@ -10,107 +10,112 @@ using Hyvinvointisovellus;
 
 namespace Hyvinvointisovellus.Controllers
 {
-    public class TyontekijatController : Controller
+    public class PalauteController : Controller
     {
         private HyvinvointiDBEntities db = new HyvinvointiDBEntities();
 
-        // GET: Tyontekijat
+        // GET: Palaute
         public ActionResult Index()
         {
-            return View(db.Tyontekijat.ToList());
+            var palaute = db.Palaute.Include(p => p.Tyontekijat);
+            return View(palaute.ToList());
         }
 
-        // GET: Tyontekijat/Details/5
+        // GET: Palaute/Details/5
         public ActionResult Details(int? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Tyontekijat tyontekijat = db.Tyontekijat.Find(id);
-            if (tyontekijat == null)
+            Palaute palaute = db.Palaute.Find(id);
+            if (palaute == null)
             {
                 return HttpNotFound();
             }
-            return View(tyontekijat);
+            return View(palaute);
         }
 
-        // GET: Tyontekijat/Create
+        // GET: Palaute/Create
         public ActionResult Create()
         {
+            ViewBag.TyontekijaID = new SelectList(db.Tyontekijat, "TyontekijaID", "Etuimi");
             return View();
         }
 
-        // POST: Tyontekijat/Create
+        // POST: Palaute/Create
         // To protect from overposting attacks, enable the specific properties you want to bind to, for 
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "TyontekijaID,Etuimi,Sukunimi")] Tyontekijat tyontekijat)
+        public ActionResult Create([Bind(Include = "PalauteID,TyontekijaID,Palaute1")] Palaute palaute)
         {
             if (ModelState.IsValid)
             {
-                db.Tyontekijat.Add(tyontekijat);
+                db.Palaute.Add(palaute);
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
 
-            return View(tyontekijat);
+            ViewBag.TyontekijaID = new SelectList(db.Tyontekijat, "TyontekijaID", "Etuimi", palaute.TyontekijaID);
+            return View(palaute);
         }
 
-        // GET: Tyontekijat/Edit/5
+        // GET: Palaute/Edit/5
         public ActionResult Edit(int? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Tyontekijat tyontekijat = db.Tyontekijat.Find(id);
-            if (tyontekijat == null)
+            Palaute palaute = db.Palaute.Find(id);
+            if (palaute == null)
             {
                 return HttpNotFound();
             }
-            return View(tyontekijat);
+            ViewBag.TyontekijaID = new SelectList(db.Tyontekijat, "TyontekijaID", "Etuimi", palaute.TyontekijaID);
+            return View(palaute);
         }
 
-        // POST: Tyontekijat/Edit/5
+        // POST: Palaute/Edit/5
         // To protect from overposting attacks, enable the specific properties you want to bind to, for 
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "TyontekijaID,Etuimi,Sukunimi")] Tyontekijat tyontekijat)
+        public ActionResult Edit([Bind(Include = "PalauteID,TyontekijaID,Palaute1")] Palaute palaute)
         {
             if (ModelState.IsValid)
             {
-                db.Entry(tyontekijat).State = EntityState.Modified;
+                db.Entry(palaute).State = EntityState.Modified;
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
-            return View(tyontekijat);
+            ViewBag.TyontekijaID = new SelectList(db.Tyontekijat, "TyontekijaID", "Etuimi", palaute.TyontekijaID);
+            return View(palaute);
         }
 
-        // GET: Tyontekijat/Delete/5
+        // GET: Palaute/Delete/5
         public ActionResult Delete(int? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Tyontekijat tyontekijat = db.Tyontekijat.Find(id);
-            if (tyontekijat == null)
+            Palaute palaute = db.Palaute.Find(id);
+            if (palaute == null)
             {
                 return HttpNotFound();
             }
-            return View(tyontekijat);
+            return View(palaute);
         }
 
-        // POST: Tyontekijat/Delete/5
+        // POST: Palaute/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(int id)
         {
-            Tyontekijat tyontekijat = db.Tyontekijat.Find(id);
-            db.Tyontekijat.Remove(tyontekijat);
+            Palaute palaute = db.Palaute.Find(id);
+            db.Palaute.Remove(palaute);
             db.SaveChanges();
             return RedirectToAction("Index");
         }
