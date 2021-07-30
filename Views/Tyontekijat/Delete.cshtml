@@ -3,7 +3,7 @@
 @{
     ViewBag.Title = "Delete";
 }
-
+<p></p>
 <h3>Poista työntekijä</h3>
 
 <h2>Haluatko varmasti poistaa tämän työntekijän?</h2>
@@ -32,8 +32,8 @@
         @Html.AntiForgeryToken()
 
         <div class="form-actions no-color">
-            <input type="submit" value="Delete" class="btn btn-danger" /> |
-            @Html.ActionLink("Back to List", "Index")
+            <input type="submit" value="Poista" class="btn btn-danger" /> |
+            @Html.ActionLink("Takaisin", "Index")
         </div>
     }
 </div>
