@@ -56,7 +56,7 @@ namespace Hyvinvointisovellus.Controllers
         {
             Session.Abandon();
             ViewBag.LoggedStatus = "Out";
-            return RedirectToAction("Index", "Home"); //Uloskirjautumisen jälkeen pääsivulle
+            return RedirectToAction("Index", "Kirjautuminen"); //Uloskirjautumisen jälkeen pääsivulle
         }
 
     }
