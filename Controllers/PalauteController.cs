@@ -19,6 +19,18 @@ namespace Hyvinvointisovellus.Controllers
         {
             var palaute = db.Palaute.Include(p => p.Tyontekijat);
             return View(palaute.ToList());
+
+            //tämä esiin kun kirjautuminen halutaan käyttöön ->
+
+            //if (Session["Käyttäjätunnus"] == null)
+            //{
+            //    return RedirectToAction("Kirjautuminen", "Home");
+            //}
+            //else
+            //{
+            //    ViewBag.Loggedstatus = "Olet kirjautunut sisään ";
+            //    return View(palaute.ToList());
+            //}
         }
 
         // GET: Palaute/Details/5

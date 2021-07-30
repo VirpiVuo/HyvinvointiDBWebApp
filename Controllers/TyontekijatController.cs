@@ -18,6 +18,18 @@ namespace Hyvinvointisovellus.Controllers
         public ActionResult Index()
         {
             return View(db.Tyontekijat.ToList());
+
+            //tämä esiin kun kirjautuminen halutaan käyttöön ->
+
+            //if (Session["Käyttäjätunnus"] == null)
+            //{
+            //    return RedirectToAction("Kirjautuminen", "Home");
+            //}
+            //else
+            //{
+            //    ViewBag.Loggedstatus = "Olet kirjautunut sisään ";
+            //    return View(db.Tyontekijat.ToList());
+            //}
         }
 
         // GET: Tyontekijat/Details/5
@@ -46,7 +58,7 @@ namespace Hyvinvointisovellus.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "TyontekijaID,Etuimi,Sukunimi")] Tyontekijat tyontekijat)
+        public ActionResult Create([Bind(Include = "TyontekijaID,Etunimi,Sukunimi")] Tyontekijat tyontekijat)
         {
             if (ModelState.IsValid)
             {

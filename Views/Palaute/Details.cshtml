@@ -4,10 +4,9 @@
     ViewBag.Title = "Details";
 }
 
-<h2>Details</h2>
+<h2>Tietoja palautteesta</h2>
 
 <div>
-    <h4>Palaute</h4>
     <hr />
     <dl class="dl-horizontal">
         <dt>
@@ -29,6 +28,6 @@
     </dl>
 </div>
 <p>
-    @Html.ActionLink("Edit", "Edit", new { id = Model.PalauteID }) |
-    @Html.ActionLink("Back to List", "Index")
+    @Html.ActionLink("Muokkaa", "Edit", new { id = Model.PalauteID }) |
+    @Html.ActionLink("Takaisin", "Index")
 </p>

@@ -7,16 +7,14 @@
 <h2>Index</h2>
 
 <p>
-    @Html.ActionLink("Create New", "Create")
+    @Html.ActionLink("Luo uusi työntekijä", "Create")
 </p>
 <table class="table">
     <tr>
         <th>
-            @Html.DisplayNameFor(model => model.Etuimi)
-        </th>
+            @Html.DisplayNameFor(model => model.Etuimi)</th>
         <th>
-            @Html.DisplayNameFor(model => model.Sukunimi)
-        </th>
+            @Html.DisplayNameFor(model => model.Sukunimi)</th>
         <th></th>
     </tr>
 
@@ -29,9 +27,9 @@
             @Html.DisplayFor(modelItem => item.Sukunimi)
         </td>
         <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.TyontekijaID }) |
-            @Html.ActionLink("Details", "Details", new { id=item.TyontekijaID }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.TyontekijaID })
+            @Html.ActionLink("Muokkaa", "Edit", new { id=item.TyontekijaID }) |
+            @Html.ActionLink("Tietoja", "Details", new { id=item.TyontekijaID }) |
+            @Html.ActionLink("Poista", "Delete", new { id=item.TyontekijaID })
         </td>
     </tr>
 }
