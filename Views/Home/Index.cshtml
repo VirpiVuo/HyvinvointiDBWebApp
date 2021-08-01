@@ -3,29 +3,31 @@
 }
 
 <div class="jumbotron">
-    <h1>ASP.NET</h1>
-    <p class="lead">ASP.NET is a free web framework for building great Web sites and Web applications using HTML, CSS and JavaScript.</p>
-    <p><a href="https://asp.net" class="btn btn-primary btn-lg">Learn more &raquo;</a></p>
+    <h1>Hei Tiina Työnantaja!</h1>
+	<p class="lead">
+		Tämä on työpaikoille suunnattu sovellus, jonka tarkoituksena on edistää työpaikan ja erityisesti työntekijöiden hyvinvointia.
+		Sovelluksen avulla pystyt tarkastelemaan työntekijöitäsi, lisäämään heitä tietokantaan tai esimerkiksi muokkaaman heidän tietojaan. 
+        Sovelluksen avulla pääset myös näkemään, millaista palautetta työntekijäsi ovat sinusta antaneet.
+	</p>
+    @*<p><a href="~/Home/Palautteet" class="btn btn-primary btn-lg">Lue palautteita  &raquo;</a></p>*@ @*<-- jumbotronin button, tarvitaanko?*@
 </div>
 
 <div class="row">
     <div class="col-md-4">
-        <h2>Getting started</h2>
+        <h2>Työntekijät</h2>
         <p>
-            ASP.NET MVC gives you a powerful, patterns-based way to build dynamic websites that
-            enables a clean separation of concerns and gives you full control over markup
-            for enjoyable, agile development.
+            Haluatko tarkastella työntekijöitäsi, tai muokata työntekijätietokantaa?
         </p>
-        <p><a class="btn btn-default" href="https://go.microsoft.com/fwlink/?LinkId=301865">Learn more &raquo;</a></p>
+        <p><a class="btn btn-default" href="~/Home/Tyontekijat">Lue lisää &raquo;</a></p>
     </div>
     <div class="col-md-4">
-        <h2>Get more libraries</h2>
-        <p>NuGet is a free Visual Studio extension that makes it easy to add, remove, and update libraries and tools in Visual Studio projects.</p>
-        <p><a class="btn btn-default" href="https://go.microsoft.com/fwlink/?LinkId=301866">Learn more &raquo;</a></p>
+        <h2>Palautteet</h2>
+        <p>Haluatko tarkastella palautteita, joita olet saanut työntekijöiltäsi?.</p>
+        <p><a class="btn btn-default" href="~/Home/Palautteet">Lue lisää &raquo;</a></p>
     </div>
     <div class="col-md-4">
-        <h2>Web Hosting</h2>
-        <p>You can easily find a web hosting company that offers the right mix of features and price for your applications.</p>
-        <p><a class="btn btn-default" href="https://go.microsoft.com/fwlink/?LinkId=301867">Learn more &raquo;</a></p>
+        <h2>Omat tiedot</h2>
+        <p>Haluatko tarkastella tai muokata omia tietojasi?</p>
+        <p><a class="btn btn-default" href="~/Home/Palautteet/Omat-tiedot">Lue lisää &raquo;</a></p>
     </div>
 </div>
