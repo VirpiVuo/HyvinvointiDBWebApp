@@ -4,6 +4,7 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 
+
 namespace Hyvinvointisovellus.Controllers
 {
     public class HomeController : Controller
@@ -31,6 +32,7 @@ namespace Hyvinvointisovellus.Controllers
         {
             return View();
         }
+
         [HttpPost]
         public ActionResult Authorize(Kirjautuminen LoginModel)
         {
@@ -52,7 +54,7 @@ namespace Hyvinvointisovellus.Controllers
                 return View("Login", LoginModel);
             }
         }
-        public ActionResult LogOut()
+        public ActionResult Logout()
         {
             Session.Abandon();
             ViewBag.LoggedStatus = "Out";
