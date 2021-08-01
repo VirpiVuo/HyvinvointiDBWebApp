@@ -18,36 +18,36 @@
             </button>
 
             <div class="collapse navbar-collapse" id="navbarColor02">
-				<ul class="navbar-nav me-auto">
-					@*<li class="nav-item">
-			<a class="nav-link active" href="#">Home<span class="visually-hidden">(current)</span>
-			</a>
-		</li>*@
-					<li class="nav-item">
-						<a class="nav-link" href="Työntekijät">Työntekijät</a>
-					</li>
-					<li class="nav-item">
-						<a class="nav-link" href="Palautteet">Palautteet</a>
-					</li>
-					<li class="nav-item">
-						<a class="nav-link" href="~/Home/Kirjautuminen">Kirjaudu ulos</a>
-					</li>
-					@*<li class="nav-item">
-			<a class="nav-link" href="~/Home/About">About</a>
-		</li>*@
-					<!--<li class="nav-item dropdown">
-		<a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Dropdown</a>-->
-					@*DROPDOWN ALKAA TÄSTÄ*@
-					<!--<div class="dropdown-menu">
-		<a class="dropdown-item" href="#">Action</a>
-		<a class="dropdown-item" href="#">Another action</a>
-		<a class="dropdown-item" href="#">Something else here</a>
-		<div class="dropdown-divider"></div>
-		<a class="dropdown-item" href="#">Separated link</a>
-	</div>-->
-					@*DROPDOWN PÄÄTTYY*@
-					<!--</li>-->
-				</ul>
+                <ul class="navbar-nav me-auto">
+                    @*<li class="nav-item">
+                            <a class="nav-link active" href="#">Home<span class="visually-hidden">(current)</span>
+                            </a>
+                        </li>*@
+                    <li class="nav-item">
+                        <a class="nav-link" href="Tyontekijat">Työntekijät</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="Palaute">Palautteet</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="~/Home/Kirjautuminen">Kirjaudu ulos</a>
+                    </li>
+                    @*<li class="nav-item">
+                            <a class="nav-link" href="~/Home/About">About</a>
+                        </li>*@
+                    <!--<li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Dropdown</a>-->
+                    @*DROPDOWN ALKAA TÄSTÄ*@
+                    <!--<div class="dropdown-menu">
+                        <a class="dropdown-item" href="#">Action</a>
+                        <a class="dropdown-item" href="#">Another action</a>
+                        <a class="dropdown-item" href="#">Something else here</a>
+                        <div class="dropdown-divider"></div>
+                        <a class="dropdown-item" href="#">Separated link</a>
+                    </div>-->
+                    @*DROPDOWN PÄÄTTYY*@
+                    <!--</li>-->
+                </ul>
             </div>
         </div>
     </nav> @*Yläpalkki valikko päättyy*@
@@ -75,18 +75,18 @@
             </div>
         </div>*@
 
-    <div class="container body-content">
-        @RenderBody()
-        <hr />
-        <footer>
-            <p>&copy; @DateTime.Now.Year - Hyvinvointisovellus 2021</p>
-        </footer>
-    </div>
-    @*<script src="https://bootswatch.com/_vendor/popper.js/dist/umd/popper.min.js"></script>
-    <script src="https://bootswatch.com/_vendor/bootstrap/dist/js/bootstrap.min.js"></script>*@
+        <div class="container body-content">
+            @RenderBody()
+            <hr />
+            <footer>
+                <p>&copy; @DateTime.Now.Year - Hyvinvointisovellus 2021</p>
+            </footer>
+        </div>
+        @*<script src="https://bootswatch.com/_vendor/popper.js/dist/umd/popper.min.js"></script>
+            <script src="https://bootswatch.com/_vendor/bootstrap/dist/js/bootstrap.min.js"></script>*@
 
-    @Scripts.Render("~/bundles/jquery")
-    @Scripts.Render("~/bundles/bootstrapCosmo") @*= Bootsrapin nimi (https://bootswatch.com/cosmo/)*@
-    @RenderSection("scripts", required: false)
+        @Scripts.Render("~/bundles/jquery")
+        @Scripts.Render("~/bundles/bootstrapCosmo") @*= Bootsrapin nimi (https://bootswatch.com/cosmo/)*@
+        @RenderSection("scripts", required: false)
 </body>
 </html>
