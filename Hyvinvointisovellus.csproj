@@ -155,8 +155,6 @@
     <Compile Include="Kirjautuminen.cs">
       <DependentUpon>HyvinvointiDBModel.tt</DependentUpon>
     </Compile>
-    <Compile Include="obj\Debug\.NETFramework,Version=v4.7.2.AssemblyAttributes.cs" />
-    <Compile Include="obj\Release\.NETFramework,Version=v4.7.2.AssemblyAttributes.cs" />
     <Compile Include="Palaute.cs">
       <DependentUpon>HyvinvointiDBModel.tt</DependentUpon>
     </Compile>
@@ -689,6 +687,7 @@
     <Folder Include=".vs\Hyvinvointisovellus\v16\" />
     <Folder Include="App_Data\" />
     <Folder Include="Models\" />
+    <Folder Include="obj\Release\" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />

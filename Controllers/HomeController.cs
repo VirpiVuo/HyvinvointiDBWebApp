@@ -33,6 +33,7 @@ namespace Hyvinvointisovellus.Controllers
             return View();
         }
 
+
         [HttpPost]
         public ActionResult Authorize(Kirjautuminen LoginModel)
         {
