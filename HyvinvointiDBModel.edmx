@@ -43,6 +43,9 @@
           <Property Name="TyontekijaID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="Etuimi" Type="varchar" MaxLength="50" />
           <Property Name="Sukunimi" Type="varchar" MaxLength="50" />
+          <Property Name="Osoite" Type="nvarchar" MaxLength="50" />
+          <Property Name="Postinumero" Type="nvarchar" MaxLength="50" />
+          <Property Name="Postitoimipaikka" Type="nvarchar" MaxLength="50" />
         </EntityType>
         <Association Name="FK__Hymynaama__Tyont__693CA210">
           <End Role="Tyontekijat" Type="Self.Tyontekijat" Multiplicity="0..1" />
@@ -129,6 +132,9 @@
           <Property Name="Sukunimi" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
           <NavigationProperty Name="Hymynaama" Relationship="Self.FK__Hymynaama__Tyont__693CA210" FromRole="Tyontekijat" ToRole="Hymynaama" />
           <NavigationProperty Name="Palaute" Relationship="Self.FK__Palaute__Tyontek__6A30C649" FromRole="Tyontekijat" ToRole="Palaute" />
+          <Property Name="Osoite" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Postinumero" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Postitoimipaikka" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
         </EntityType>
         <Association Name="FK__Hymynaama__Tyont__693CA210">
           <End Role="Tyontekijat" Type="Self.Tyontekijat" Multiplicity="0..1" />
@@ -213,6 +219,9 @@
           <EntitySetMapping Name="Tyontekijat">
             <EntityTypeMapping TypeName="HyvinvointiDBModel.Tyontekijat">
               <MappingFragment StoreEntitySet="Tyontekijat">
+                <ScalarProperty Name="Postitoimipaikka" ColumnName="Postitoimipaikka" />
+                <ScalarProperty Name="Postinumero" ColumnName="Postinumero" />
+                <ScalarProperty Name="Osoite" ColumnName="Osoite" />
                 <ScalarProperty Name="TyontekijaID" ColumnName="TyontekijaID" />
                 <ScalarProperty Name="Etuimi" ColumnName="Etuimi" />
                 <ScalarProperty Name="Sukunimi" ColumnName="Sukunimi" />
