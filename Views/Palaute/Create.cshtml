@@ -4,7 +4,7 @@
     ViewBag.Title = "Create";
 }
 <p></p>
-<h2>Luo uusi palaute</h2>
+<h2>Luo uusi palaute</h2>           @*eikös tämä näy vain työntekijöille? piilossa Tiina Työnantajalta?*@
 
 
 @using (Html.BeginForm()) 
@@ -32,14 +32,14 @@
 
         <div class="form-group">
             <div class="col-md-offset-2 col-md-10">
-                <input type="submit" value="Create" class="btn btn-default" />
+                <input type="submit" value="Luo" class="btn btn-success" />
             </div>
         </div>
     </div>
 }
 
 <div>
-    @Html.ActionLink("Back to List", "Index")
+    @Html.ActionLink("Takaisin", "Index")
 </div>
 
 @section Scripts {
