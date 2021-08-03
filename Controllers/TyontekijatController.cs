@@ -58,7 +58,7 @@ namespace Hyvinvointisovellus.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "TyontekijaID,Etunimi,Sukunimi")] Tyontekijat tyontekijat)
+        public ActionResult Create([Bind(Include = "TyontekijaID,Etunimi,Sukunimi,Osoite,Postinumero,Postitoimipaikka")] Tyontekijat tyontekijat)
         {
             if (ModelState.IsValid)
             {
@@ -90,7 +90,7 @@ namespace Hyvinvointisovellus.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "TyontekijaID,Etuimi,Sukunimi")] Tyontekijat tyontekijat)
+        public ActionResult Edit([Bind(Include = "TyontekijaID,Etuimi,Sukunimi,Osoite,Postinumero,Postitoimipaikka")] Tyontekijat tyontekijat)
         {
             if (ModelState.IsValid)
             {
