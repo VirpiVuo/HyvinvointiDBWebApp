@@ -10,13 +10,15 @@
     @Html.ActionLink("Luo uusi työntekijä", "Create")
 </p>
 <table class="table">
-    <tr>
-        <th>
-            @Html.DisplayNameFor(model => model.Etunimi)</th>
-        <th>
-            @Html.DisplayNameFor(model => model.Sukunimi)</th>
-        <th></th>
-    </tr>
+	<tr>
+		<th>
+			@Html.DisplayNameFor(model => model.Etunimi)
+		</th>
+		<th>
+			@Html.DisplayNameFor(model => model.Sukunimi)
+		</th>
+		<th></th>
+	</tr>
 
 @foreach (var item in Model) {
     <tr>

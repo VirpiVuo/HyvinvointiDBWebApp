@@ -682,6 +682,7 @@
     <Content Include="Views\Tyontekijat\Details.cshtml" />
     <Content Include="Views\Tyontekijat\Edit.cshtml" />
     <Content Include="Views\Tyontekijat\Index.cshtml" />
+    <Content Include="Views\Home\Omattiedot.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include=".vs\HyvinvointiDBWebApp1\v16\" />

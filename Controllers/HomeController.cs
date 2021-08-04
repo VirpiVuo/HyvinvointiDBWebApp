@@ -54,6 +54,10 @@ namespace Hyvinvointisovellus.Controllers
             else ViewBag.LoggedStatus = "Kirjautunut";
             return View();
         }
+        public ActionResult Omattiedot()
+        {
+            return View();
+        }
 
 
         [HttpPost]
