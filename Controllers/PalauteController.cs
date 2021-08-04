@@ -51,7 +51,7 @@ namespace Hyvinvointisovellus.Controllers
         // GET: Palaute/Create
         public ActionResult Create()
         {
-            ViewBag.TyontekijaID = new SelectList(db.Tyontekijat, "TyontekijaID", "Etuimi");
+            ViewBag.TyontekijaID = new SelectList(db.Tyontekijat, "TyontekijaID", "Etunimi");
             return View();
         }
 
@@ -69,7 +69,7 @@ namespace Hyvinvointisovellus.Controllers
                 return RedirectToAction("Index");
             }
 
-            ViewBag.TyontekijaID = new SelectList(db.Tyontekijat, "TyontekijaID", "Etuimi", palaute.TyontekijaID);
+            ViewBag.TyontekijaID = new SelectList(db.Tyontekijat, "TyontekijaID", "Etunimi", palaute.TyontekijaID);
             return View(palaute);
         }
 
@@ -85,7 +85,7 @@ namespace Hyvinvointisovellus.Controllers
             {
                 return HttpNotFound();
             }
-            ViewBag.TyontekijaID = new SelectList(db.Tyontekijat, "TyontekijaID", "Etuimi", palaute.TyontekijaID);
+            ViewBag.TyontekijaID = new SelectList(db.Tyontekijat, "TyontekijaID", "Etunimi", palaute.TyontekijaID);
             return View(palaute);
         }
 
@@ -102,7 +102,7 @@ namespace Hyvinvointisovellus.Controllers
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
-            ViewBag.TyontekijaID = new SelectList(db.Tyontekijat, "TyontekijaID", "Etuimi", palaute.TyontekijaID);
+            ViewBag.TyontekijaID = new SelectList(db.Tyontekijat, "TyontekijaID", "Etunimi", palaute.TyontekijaID);
             return View(palaute);
         }
 
