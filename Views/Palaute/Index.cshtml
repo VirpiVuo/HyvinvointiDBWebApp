@@ -10,30 +10,36 @@
     @Html.ActionLink("Luo uusi", "Create")
 </p>
 <table class="table">
-    <tr>
-        <th>
-            @Html.DisplayNameFor(model => model.Palaute1)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Tyontekijat.Etunimi)
-        </th>
-        <th></th>
-    </tr>
+	<tr>
+		<th>
+			@Html.DisplayNameFor(model => model.Palaute1)
+		</th>
+		<th>
+			@Html.DisplayNameFor(model => model.Tyontekijat.Etunimi)
+		</th>
+		<th>
+			@Html.DisplayNameFor(model => model.Tyontekijat.Sukunimi)
+		</th>
+		<th></th>
+	</tr>
 
 @foreach (var item in Model) {
-    <tr>
-        <td>
-            @Html.DisplayFor(modelItem => item.Palaute1)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Tyontekijat.Etunimi)
-        </td>
-        <td>
-            @Html.ActionLink("Muokkaa", "Edit", new { id=item.PalauteID }) |
-            @Html.ActionLink("Tietoja", "Details", new { id=item.PalauteID }) |
-            @Html.ActionLink("Poista", "Delete", new { id=item.PalauteID })
-        </td>
-    </tr>
+<tr>
+	<td>
+		@Html.DisplayFor(modelItem => item.Palaute1)
+	</td>
+	<td>
+		@Html.DisplayFor(modelItem => item.Tyontekijat.Etunimi)
+	</td>
+	<td>
+		@Html.DisplayFor(modelItem => item.Tyontekijat.Sukunimi)
+	</td>
+	<td>
+		@Html.ActionLink("Muokkaa", "Edit", new { id = item.PalauteID }) |
+		@Html.ActionLink("Tietoja", "Details", new { id = item.PalauteID }) |
+		@Html.ActionLink("Poista", "Delete", new { id = item.PalauteID })
+	</td>
+</tr>
 }
 
 </table>

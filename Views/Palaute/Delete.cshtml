@@ -9,24 +9,32 @@
 <h3>Haluatko varmasti poistaa tämän palautteen?</h3>
 <div>
     <hr />
-    <dl class="dl-horizontal">
-        <dt>
-            @Html.DisplayNameFor(model => model.Palaute1)
-        </dt>
+	<dl class="dl-horizontal">
+		<dt>
+			@Html.DisplayNameFor(model => model.Palaute1)
+		</dt>
 
-        <dd>
-            @Html.DisplayFor(model => model.Palaute1)
-        </dd>
+		<dd>
+			@Html.DisplayFor(model => model.Palaute1)
+		</dd>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.Tyontekijat.Etunimi)
-        </dt>
+		<dt>
+			@Html.DisplayNameFor(model => model.Tyontekijat.Etunimi)
+		</dt>
 
-        <dd>
-            @Html.DisplayFor(model => model.Tyontekijat.Etunimi)
-        </dd>
+		<dd>
+			@Html.DisplayFor(model => model.Tyontekijat.Etunimi)
+		</dd>
 
-    </dl>
+		<dt>
+			@Html.DisplayNameFor(model => model.Tyontekijat.Sukunimi)
+		</dt>
+
+		<dd>
+			@Html.DisplayFor(model => model.Tyontekijat.Sukunimi)
+		</dd>
+
+	</dl>
 
     @using (Html.BeginForm()) {
         @Html.AntiForgeryToken()
