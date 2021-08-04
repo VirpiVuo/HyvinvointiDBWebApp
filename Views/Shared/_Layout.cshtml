@@ -9,10 +9,11 @@
 </head>
 
 <body>
+    
     @*Yläpalkki valikko alkaa*@
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
         <div class="container-fluid">
-            <a class="navbar-brand" href="~/Home/Index">Etusivu</a>
+            <a class="navbar-brand" href="~/Home/Index">SOVELLUS-X</a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarColor02" aria-controls="navbarColor02" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
@@ -20,9 +21,9 @@
             <div class="collapse navbar-collapse" id="navbarColor02">
                 <ul class="navbar-nav me-auto">
                     @*<li class="nav-item">
-                            <a class="nav-link active" href="#">Home<span class="visually-hidden">(current)</span>
-                            </a>
-                        </li>*@
+            <a class="nav-link active" href="#">Home<span class="visually-hidden">(current)</span>
+            </a>
+        </li>*@
                     <li class="nav-item">
                         <a class="nav-link" href="~/Tyontekijat/Index">Työntekijät</a>
                     </li>
@@ -33,26 +34,28 @@
                         <a class="nav-link" href="OmatTiedot">Omat tiedot</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="~/Home/Kirjautuminen">Kirjaudu ulos</a>
+                        <a class="nav-link" href="~/Home/Logout">Kirjaudu ulos</a>
                     </li>
+                    
                     @*<li class="nav-item">
-                            <a class="nav-link" href="~/Home/About">About</a>
-                        </li>*@
+            <a class="nav-link" href="~/Home/About">About</a>
+        </li>*@
                     <!--<li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Dropdown</a>-->
+    <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Dropdown</a>-->
                     @*DROPDOWN ALKAA TÄSTÄ*@
                     <!--<div class="dropdown-menu">
-                        <a class="dropdown-item" href="#">Action</a>
-                        <a class="dropdown-item" href="#">Another action</a>
-                        <a class="dropdown-item" href="#">Something else here</a>
-                        <div class="dropdown-divider"></div>
-                        <a class="dropdown-item" href="#">Separated link</a>
-                    </div>-->
+        <a class="dropdown-item" href="#">Action</a>
+        <a class="dropdown-item" href="#">Another action</a>
+        <a class="dropdown-item" href="#">Something else here</a>
+        <div class="dropdown-divider"></div>
+        <a class="dropdown-item" href="#">Separated link</a>
+    </div>-->
                     @*DROPDOWN PÄÄTTYY*@
                     <!--</li>-->
                 </ul>
             </div>
         </div>
+        <span class="badge badge-dark">@ViewBag.LoggedStatus</span>
     </nav> @*Yläpalkki valikko päättyy*@
 
 

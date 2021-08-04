@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using Hyvinvointisovellus;
 
 
 namespace Hyvinvointisovellus.Controllers
@@ -11,11 +12,22 @@ namespace Hyvinvointisovellus.Controllers
     {
         public ActionResult Index()
         {
+            if (Session["UserName"] == null)
+            {
+                ViewBag.LoggedStatus = "Ei kirjautunut";
+                return View("Kirjautuminen");
+            }
+            else ViewBag.LoggedStatus = "Kirjautunut";
             return View();
         }
 
         public ActionResult About()
         {
+            if (Session["UserName"] == null)
+            {
+                ViewBag.LoggedStatus = "Ei kirjautunut";
+            }
+            else ViewBag.LoggedStatus = "Kirjautunut";
             ViewBag.Message = "Your application description page.";
 
             return View();
@@ -23,6 +35,11 @@ namespace Hyvinvointisovellus.Controllers
 
         public ActionResult Contact()
         {
+            if (Session["UserName"] == null)
+            {
+                ViewBag.LoggedStatus = "Ei kirjautunut";
+            }
+            else ViewBag.LoggedStatus = "Kirjautunut";
             ViewBag.Message = "Your contact page.";
 
             return View();
@@ -30,6 +47,11 @@ namespace Hyvinvointisovellus.Controllers
         
         public ActionResult Kirjautuminen()
         {
+            if (Session["UserName"] == null)
+            {
+                ViewBag.LoggedStatus = "Ei kirjautunut";
+            }
+            else ViewBag.LoggedStatus = "Kirjautunut";
             return View();
         }
 
@@ -42,25 +64,24 @@ namespace Hyvinvointisovellus.Controllers
             var LoggedUser = db.Kirjautuminen.SingleOrDefault(x => x.Kayttajatunnus == LoginModel.Kayttajatunnus && x.Salasana == LoginModel.Salasana);
             if (LoggedUser != null)
             {
-                ViewBag.LoginMessage = "Successfull login";
-                ViewBag.LoggedStatus = "In";
+                //ViewBag.LoginMessage = "Kirjautuminen onnistui!";
+                ViewBag.LoggedStatus = "Kirjautunut";
                 Session["UserName"] = LoggedUser.Kayttajatunnus;
                 return RedirectToAction("Index", "Home"); //Tässä määritellään mihin onnistunut kirjautuminen johtaa --> Home/Index
             }
             else
             {
-                ViewBag.LoginMessage = "Login unsuccessfull";
-                ViewBag.LoggedStatus = "Out";
-                //LoginModel.LoginErrorMessage = "Tuntematon käyttäjätunnus tai salasana.";
-                return View("Login", LoginModel);
+                //ViewBag.LoginMessage = "Kirjautuminen epäonnistui!";
+                ViewBag.LoggedStatus = "Ei kirjautunut";
+                LoginModel.LoginErrorMessage = "Tuntematon käyttäjätunnus tai salasana. Yritä uudelleen!";
+                return View("Kirjautuminen", LoginModel); 
             }
         }
         public ActionResult Logout()
         {
             Session.Abandon();
-            ViewBag.LoggedStatus = "Out";
-            return RedirectToAction("Index", "Kirjautuminen"); //Uloskirjautumisen jälkeen pääsivulle
+            ViewBag.LoggedStatus = "Ei kirjautunut";
+            return RedirectToAction("Index", "Home"); //Uloskirjautumisen jälkeen pääsivulle
         }
-
     }
 }

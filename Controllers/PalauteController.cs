@@ -17,8 +17,20 @@ namespace Hyvinvointisovellus.Controllers
         // GET: Palaute
         public ActionResult Index()
         {
-            var palaute = db.Palaute.Include(p => p.Tyontekijat);
-            return View(palaute.ToList());
+            if (Session["UserName"] == null)
+            {
+                ViewBag.LoggedStatus = "Ei kirjautunut";
+            }
+            else ViewBag.LoggedStatus = "Kirjautunut";
+            if (Session["UserName"] == null)
+            {
+                return RedirectToAction("Kirjautuminen", "Home");
+            }
+            else
+            {
+                var palaute = db.Palaute.Include(p => p.Tyontekijat);
+                return View(palaute.ToList());
+            }
 
             //tämä esiin kun kirjautuminen halutaan käyttöön ->
 
@@ -36,6 +48,11 @@ namespace Hyvinvointisovellus.Controllers
         // GET: Palaute/Details/5
         public ActionResult Details(int? id)
         {
+            if (Session["UserName"] == null)
+            {
+                ViewBag.LoggedStatus = "Ei kirjautunut";
+            }
+            else ViewBag.LoggedStatus = "Kirjautunut";
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
@@ -51,6 +68,11 @@ namespace Hyvinvointisovellus.Controllers
         // GET: Palaute/Create
         public ActionResult Create()
         {
+            if (Session["UserName"] == null)
+            {
+                ViewBag.LoggedStatus = "Ei kirjautunut";
+            }
+            else ViewBag.LoggedStatus = "Kirjautunut";
             ViewBag.TyontekijaID = new SelectList(db.Tyontekijat, "TyontekijaID", "Etuimi");
             return View();
         }
@@ -62,6 +84,11 @@ namespace Hyvinvointisovellus.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult Create([Bind(Include = "PalauteID,TyontekijaID,Palaute1")] Palaute palaute)
         {
+            if (Session["UserName"] == null)
+            {
+                ViewBag.LoggedStatus = "Ei kirjautunut";
+            }
+            else ViewBag.LoggedStatus = "Kirjautunut";
             if (ModelState.IsValid)
             {
                 db.Palaute.Add(palaute);
@@ -76,6 +103,11 @@ namespace Hyvinvointisovellus.Controllers
         // GET: Palaute/Edit/5
         public ActionResult Edit(int? id)
         {
+            if (Session["UserName"] == null)
+            {
+                ViewBag.LoggedStatus = "Ei kirjautunut";
+            }
+            else ViewBag.LoggedStatus = "Kirjautunut";
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
@@ -96,6 +128,11 @@ namespace Hyvinvointisovellus.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult Edit([Bind(Include = "PalauteID,TyontekijaID,Palaute1")] Palaute palaute)
         {
+            if (Session["UserName"] == null)
+            {
+                ViewBag.LoggedStatus = "Ei kirjautunut";
+            }
+            else ViewBag.LoggedStatus = "Kirjautunut";
             if (ModelState.IsValid)
             {
                 db.Entry(palaute).State = EntityState.Modified;
@@ -109,6 +146,11 @@ namespace Hyvinvointisovellus.Controllers
         // GET: Palaute/Delete/5
         public ActionResult Delete(int? id)
         {
+            if (Session["UserName"] == null)
+            {
+                ViewBag.LoggedStatus = "Ei kirjautunut";
+            }
+            else ViewBag.LoggedStatus = "Kirjautunut";
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
@@ -126,6 +168,11 @@ namespace Hyvinvointisovellus.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(int id)
         {
+            if (Session["UserName"] == null)
+            {
+                ViewBag.LoggedStatus = "Ei kirjautunut";
+            }
+            else ViewBag.LoggedStatus = "Kirjautunut";
             Palaute palaute = db.Palaute.Find(id);
             db.Palaute.Remove(palaute);
             db.SaveChanges();

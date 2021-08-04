@@ -17,7 +17,19 @@ namespace Hyvinvointisovellus.Controllers
         // GET: Tyontekijat
         public ActionResult Index()
         {
-            return View(db.Tyontekijat.ToList());
+            if (Session["UserName"] == null)
+            {
+                ViewBag.LoggedStatus = "Ei kirjautunut";
+            }
+            else ViewBag.LoggedStatus = "Kirjautunut";
+            if (Session["UserName"] == null)
+            {
+                return RedirectToAction("Kirjautuminen", "Home");
+            }
+            else
+            {
+                return View(db.Tyontekijat.ToList());
+            }
 
             //tämä esiin kun kirjautuminen halutaan käyttöön ->
 
@@ -35,6 +47,11 @@ namespace Hyvinvointisovellus.Controllers
         // GET: Tyontekijat/Details/5
         public ActionResult Details(int? id)
         {
+            if (Session["UserName"] == null)
+            {
+                ViewBag.LoggedStatus = "Ei kirjautunut";
+            }
+            else ViewBag.LoggedStatus = "Kirjautunut";
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
@@ -50,6 +67,11 @@ namespace Hyvinvointisovellus.Controllers
         // GET: Tyontekijat/Create
         public ActionResult Create()
         {
+            if (Session["UserName"] == null)
+            {
+                ViewBag.LoggedStatus = "Ei kirjautunut";
+            }
+            else ViewBag.LoggedStatus = "Kirjautunut";
             return View();
         }
 
@@ -60,6 +82,11 @@ namespace Hyvinvointisovellus.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult Create([Bind(Include = "TyontekijaID,Etunimi,Sukunimi")] Tyontekijat tyontekijat)
         {
+            if (Session["UserName"] == null)
+            {
+                ViewBag.LoggedStatus = "Ei kirjautunut";
+            }
+            else ViewBag.LoggedStatus = "Kirjautunut";
             if (ModelState.IsValid)
             {
                 db.Tyontekijat.Add(tyontekijat);
@@ -73,6 +100,11 @@ namespace Hyvinvointisovellus.Controllers
         // GET: Tyontekijat/Edit/5
         public ActionResult Edit(int? id)
         {
+            if (Session["UserName"] == null)
+            {
+                ViewBag.LoggedStatus = "Ei kirjautunut";
+            }
+            else ViewBag.LoggedStatus = "Kirjautunut";
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
@@ -92,6 +124,11 @@ namespace Hyvinvointisovellus.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult Edit([Bind(Include = "TyontekijaID,Etuimi,Sukunimi")] Tyontekijat tyontekijat)
         {
+            if (Session["UserName"] == null)
+            {
+                ViewBag.LoggedStatus = "Ei kirjautunut";
+            }
+            else ViewBag.LoggedStatus = "Kirjautunut";
             if (ModelState.IsValid)
             {
                 db.Entry(tyontekijat).State = EntityState.Modified;
@@ -104,6 +141,11 @@ namespace Hyvinvointisovellus.Controllers
         // GET: Tyontekijat/Delete/5
         public ActionResult Delete(int? id)
         {
+            if (Session["UserName"] == null)
+            {
+                ViewBag.LoggedStatus = "Ei kirjautunut";
+            }
+            else ViewBag.LoggedStatus = "Kirjautunut";
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
@@ -121,6 +163,11 @@ namespace Hyvinvointisovellus.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(int id)
         {
+            if (Session["UserName"] == null)
+            {
+                ViewBag.LoggedStatus = "Ei kirjautunut";
+            }
+            else ViewBag.LoggedStatus = "Kirjautunut";
             Tyontekijat tyontekijat = db.Tyontekijat.Find(id);
             db.Tyontekijat.Remove(tyontekijat);
             db.SaveChanges();

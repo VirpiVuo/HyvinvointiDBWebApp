@@ -15,7 +15,7 @@
             @Html.DisplayNameFor(model => model.Palaute1)
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.Tyontekijat.Etuimi)
+            @Html.DisplayNameFor(model => model.Tyontekijat.Etunimi)
         </th>
         <th></th>
     </tr>
@@ -26,7 +26,7 @@
             @Html.DisplayFor(modelItem => item.Palaute1)
         </td>
         <td>
-            @Html.DisplayFor(modelItem => item.Tyontekijat.Etuimi)
+            @Html.DisplayFor(modelItem => item.Tyontekijat.Etunimi)
         </td>
         <td>
             @Html.ActionLink("Muokkaa", "Edit", new { id=item.PalauteID }) |

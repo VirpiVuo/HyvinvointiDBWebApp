@@ -22,8 +22,11 @@ namespace Hyvinvointisovellus
         }
     
         public int TyontekijaID { get; set; }
-        public string Etuimi { get; set; }
         public string Sukunimi { get; set; }
+        public string Etunimi { get; set; }
+        public string Osoite { get; set; }
+        public string Postinumero { get; set; }
+        public string Postitoimipaikka { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Hymynaama> Hymynaama { get; set; }
