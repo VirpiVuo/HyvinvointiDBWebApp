@@ -32,6 +32,10 @@ namespace Hyvinvointisovellus.Controllers
         {
             return View();
         }
+        public ActionResult Omattiedot()
+        {
+            return View();
+        }
 
 
         [HttpPost]
