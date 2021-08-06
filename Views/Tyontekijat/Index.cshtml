@@ -6,9 +6,22 @@
 <p></p>
 <h2>Tietoja työntekijöistä</h2>
 
-<p>
-    @Html.ActionLink("Luo uusi työntekijä", "Create")
-</p>
+<p></p>
+
+<html>
+<body>
+	<button id="myBtn">
+		Lisää uusi työntekijä
+		<script>
+			document.getElementById("myBtn").addEventListener("click", myFunction);
+			function myFunction() {
+				window.location.href = "/Tyontekijat/Create";
+			}
+		</script>
+	</button>
+</body>
+</html>
+<p></p>
 <table class="table">
 	<tr>
 		<th>

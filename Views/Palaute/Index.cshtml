@@ -6,8 +6,21 @@
 <p></p>
 <h2>Palautteet</h2>
 
+<html>
+<body>
+	<button id="myBtn">
+		Luo uusi palaute
+		<script>
+			document.getElementById("myBtn").addEventListener("click", myFunction);
+			function myFunction() {
+				window.location.href = "/Palaute/Create";
+			}
+		</script>
+	</button>
+</body>
+</html>
 <p>
-    @Html.ActionLink("Luo uusi", "Create")
+	@*@Html.ActionLink("Luo uusi", "Create")*@
 </p>
 <table class="table">
 	<tr>

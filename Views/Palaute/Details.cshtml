@@ -28,6 +28,18 @@
     </dl>
 </div>
 <p>
-    @Html.ActionLink("Muokkaa", "Edit", new { id = Model.PalauteID }) |
-    @Html.ActionLink("Takaisin", "Index")
+    @Html.ActionLink("Muokkaa", "Edit", new { id = Model.PalauteID })
 </p>
+<html>
+<body>
+	<button id="myBtn">
+		Takaisin
+		<script>
+			document.getElementById("myBtn").addEventListener("click", myFunction);
+			function myFunction() {
+				window.location.href = "/Palaute";
+			}
+		</script>
+	</button>
+</body>
+</html>

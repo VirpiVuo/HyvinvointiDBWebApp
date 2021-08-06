@@ -40,8 +40,21 @@
         @Html.AntiForgeryToken()
 
         <div class="form-actions no-color">
-            <input type="submit" value="Poista" class="btn btn-danger" /> |
-            @Html.ActionLink("Takaisin", "Index")
+            <input type="submit" value="Poista" class="btn btn-danger" />
         </div>
     }
 </div>
+<p></p>
+<html>
+<body>
+	<button id="myBtn">
+		Takaisin
+		<script>
+			document.getElementById("myBtn").addEventListener("click", myFunction);
+			function myFunction() {
+				window.location.href = "/Palaute";
+			}
+		</script>
+	</button>
+</body>
+</html>

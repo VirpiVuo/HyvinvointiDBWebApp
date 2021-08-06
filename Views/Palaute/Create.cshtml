@@ -33,13 +33,25 @@
 	<div class="form-group">
 		<div class="col-md-offset-2 col-md-10">
 			<input type="submit" value="Luo" class="btn btn-success" />
-			<button type="button" onclick="location.href='@Url.Action("Index", "Palaute")'">Takaisin</button>
 		</div>
 	</div>
 
 
 </div>
 }
+<html>
+<body>
+	<button id="myBtn">
+		Takaisin
+		<script>
+			document.getElementById("myBtn").addEventListener("click", myFunction);
+			function myFunction() {
+				window.location.href = "/Palaute";
+			}
+		</script>
+	</button>
+</body>
+</html>
 
 @section Scripts {
     @Scripts.Render("~/bundles/jqueryval")
