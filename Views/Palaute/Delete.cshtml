@@ -4,7 +4,7 @@
     ViewBag.Title = "Delete";
 }
 <p></p>
-<h2>Palautteet</h2>
+<h2>Poista</h2>
 <p></p>
 <h3>Haluatko varmasti poistaa tämän palautteen?</h3>
 <div>
@@ -39,22 +39,9 @@
     @using (Html.BeginForm()) {
         @Html.AntiForgeryToken()
 
-        <div class="form-actions no-color">
-            <input type="submit" value="Poista" class="btn btn-danger" />
-        </div>
+<div class="form-actions no-color">
+	<input type="submit" value="Poista" class="btn btn-danger" />
+	<a class="btn btn-secondary" href="/Palaute">Takaisin</a>
+</div>
     }
 </div>
-<p></p>
-<html>
-<body>
-	<button id="myBtn">
-		Takaisin
-		<script>
-			document.getElementById("myBtn").addEventListener("click", myFunction);
-			function myFunction() {
-				window.location.href = "/Palaute";
-			}
-		</script>
-	</button>
-</body>
-</html>

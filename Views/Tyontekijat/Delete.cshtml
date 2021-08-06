@@ -4,9 +4,9 @@
     ViewBag.Title = "Delete";
 }
 <p></p>
-<h3>Poista työntekijä</h3>
+<h2>Poista</h2>
 
-<h2>Haluatko varmasti poistaa tämän työntekijän?</h2>
+<h3>Haluatko varmasti poistaa tämän työntekijän?</h3>
 <div>
     <hr />
     <dl class="dl-horizontal">
@@ -31,22 +31,10 @@
     @using (Html.BeginForm()) {
         @Html.AntiForgeryToken()
 
-        <div class="form-actions no-color">
-            <input type="submit" value="Poista" class="btn btn-danger" />
-        </div>
+<div class="form-actions no-color">
+	<input type="submit" value="Poista" class="btn btn-danger" />
+	<a class="btn btn-secondary" href="/Tyontekijat">Takaisin</a>
+
+</div>
     }
 </div>
-
-<html>
-<body>
-	<button id="myBtn">
-		Takaisin
-		<script>
-			document.getElementById("myBtn").addEventListener("click", myFunction);
-			function myFunction() {
-				window.location.href = "/Tyontekijat";
-			}
-		</script>
-	</button>
-</body>
-</html>

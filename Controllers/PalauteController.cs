@@ -73,7 +73,7 @@ namespace Hyvinvointisovellus.Controllers
                 ViewBag.LoggedStatus = "Ei kirjautunut";
             }
             else ViewBag.LoggedStatus = "Kirjautunut";
-            ViewBag.TyontekijaID = new SelectList(db.Tyontekijat, "TyontekijaID", "Etuimi");
+            ViewBag.TyontekijaID = new SelectList(db.Tyontekijat, "TyontekijaID", "Etunimi");
             return View();
         }
 

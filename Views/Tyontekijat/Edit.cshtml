@@ -58,25 +58,12 @@
 
 	<div class="form-group">
 		<div class="col-md-offset-2 col-md-10">
-			<input type="submit" value="Tallenna" class="btn btn-success" />
+			<input type="submit" value="Tallenna" class="btn btn-info" />
+			<a class="btn btn-secondary" href="/Tyontekijat">Takaisin</a>
 		</div>
 	</div>
 </div>
 }
-
-<html>
-<body>
-	<button id="myBtn">
-		Takaisin
-		<script>
-			document.getElementById("myBtn").addEventListener("click", myFunction);
-			function myFunction() {
-				window.location.href = "/Tyontekijat";
-			}
-		</script>
-	</button>
-</body>
-</html>
 
 @section Scripts {
     @Scripts.Render("~/bundles/jqueryval")

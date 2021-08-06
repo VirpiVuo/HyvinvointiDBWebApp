@@ -9,12 +9,12 @@
 <div>
     <hr />
     <dl class="dl-horizontal">
-        <dt>
+        @*<dt>
             @Html.DisplayNameFor(model => model.Palaute1)
-        </dt>
+        </dt>*@
 
         <dd>
-            @Html.DisplayFor(model => model.Palaute1)
+            @Html.DisplayFor(model => model.Palaute1, "Palaute")
         </dd>
 
         <dt>
@@ -25,21 +25,17 @@
             @Html.DisplayFor(model => model.Tyontekijat.Etunimi)
         </dd>
 
+        <dt>
+            @Html.DisplayNameFor(model => model.Tyontekijat.Sukunimi)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Tyontekijat.Sukunimi)
+        </dd>
+
     </dl>
 </div>
 <p>
-    @Html.ActionLink("Muokkaa", "Edit", new { id = Model.PalauteID })
+	@Html.ActionLink("Muokkaa", "Edit", new { id = Model.PalauteID }, new { @class = "btn btn-info" })
+	<a class="btn btn-secondary" href="/Palaute">Takaisin</a>
 </p>
-<html>
-<body>
-	<button id="myBtn">
-		Takaisin
-		<script>
-			document.getElementById("myBtn").addEventListener("click", myFunction);
-			function myFunction() {
-				window.location.href = "/Palaute";
-			}
-		</script>
-	</button>
-</body>
-</html>

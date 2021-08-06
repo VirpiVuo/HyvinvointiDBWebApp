@@ -51,19 +51,6 @@
 	</dl>
 </div>
 <p>
-    @Html.ActionLink("Muokkaa", "Edit", new { id = Model.TyontekijaID })
+	@Html.ActionLink("Muokkaa", "Edit", new { id = Model.TyontekijaID }, new { @class = "btn btn-info" })
+	<a class="btn btn-secondary" href="/Tyontekijat">Takaisin</a>
 </p>
-
-<html>
-<body>
-	<button id="myBtn">
-		Takaisin
-		<script>
-			document.getElementById("myBtn").addEventListener("click", myFunction);
-			function myFunction() {
-				window.location.href = "/Tyontekijat";
-			}
-		</script>
-	</button>
-</body>
-</html>

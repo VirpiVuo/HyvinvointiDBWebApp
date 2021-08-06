@@ -5,23 +5,13 @@
 }
 <p></p>
 <h2>Palautteet</h2>
+<p></p>
 
-<html>
-<body>
-	<button id="myBtn">
-		Luo uusi palaute
-		<script>
-			document.getElementById("myBtn").addEventListener("click", myFunction);
-			function myFunction() {
-				window.location.href = "/Palaute/Create";
-			}
-		</script>
-	</button>
-</body>
-</html>
-<p>
-	@*@Html.ActionLink("Luo uusi", "Create")*@
-</p>
+<div>
+	<a class="btn btn-info" href="/Palaute/Create">Lisää uusi palaute</a>
+</div>
+
+<p></p>
 <table class="table">
 	<tr>
 		<th>
@@ -48,9 +38,9 @@
 		@Html.DisplayFor(modelItem => item.Tyontekijat.Sukunimi)
 	</td>
 	<td>
-		@Html.ActionLink("Muokkaa", "Edit", new { id = item.PalauteID }) |
-		@Html.ActionLink("Tietoja", "Details", new { id = item.PalauteID }) |
-		@Html.ActionLink("Poista", "Delete", new { id = item.PalauteID })
+		@Html.ActionLink("Muokkaa", "Edit", new { id = item.PalauteID }, new { @class = "btn btn-outline-primary" })
+		@Html.ActionLink("Tietoja", "Details", new { id = item.PalauteID }, new { @class = "btn btn-outline-primary" })
+		@Html.ActionLink("Poista", "Delete", new { id = item.PalauteID }, new { @class = "btn btn-outline-primary" })
 	</td>
 </tr>
 }

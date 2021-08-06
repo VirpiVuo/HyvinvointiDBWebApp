@@ -8,19 +8,9 @@
 
 <p></p>
 
-<html>
-<body>
-	<button id="myBtn">
-		Lisää uusi työntekijä
-		<script>
-			document.getElementById("myBtn").addEventListener("click", myFunction);
-			function myFunction() {
-				window.location.href = "/Tyontekijat/Create";
-			}
-		</script>
-	</button>
-</body>
-</html>
+<div>
+	<a class="btn btn-info" href="/Tyontekijat/Create">Lisää uusi työntekijä</a>
+</div>
 <p></p>
 <table class="table">
 	<tr>
@@ -41,10 +31,10 @@
         <td>
             @Html.DisplayFor(modelItem => item.Sukunimi)
         </td>
-        <td>
-            @Html.ActionLink("Muokkaa", "Edit", new { id=item.TyontekijaID }) |
-            @Html.ActionLink("Tietoja", "Details", new { id=item.TyontekijaID }) |
-            @Html.ActionLink("Poista", "Delete", new { id=item.TyontekijaID })
+        <td align="right">
+            @Html.ActionLink("Muokkaa", "Edit", new { id=item.TyontekijaID }, new { @class = "btn btn-outline-primary" })
+            @Html.ActionLink("Tietoja", "Details", new { id=item.TyontekijaID }, new { @class = "btn btn-outline-primary" })
+            @Html.ActionLink("Poista", "Delete", new { id=item.TyontekijaID }, new { @class = "btn btn-outline-primary" })
         </td>
     </tr>
 }
