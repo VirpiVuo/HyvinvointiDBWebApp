@@ -1,7 +1,20 @@
-﻿
+﻿@model Hyvinvointisovellus.Hymynaama
+
 @{
     ViewBag.Title = "Omattiedot";
+
 }
 <p></p>
 <h2>Omat Tiedot</h2>
+
+<div class="form-group">
+    <h4>Millainen päiväsi oli tänään?</h4>
+    @Html.LabelFor(model => model.Hymynaama1, htmlAttributes: new { @class = "control-label col-md-2" })
+    <div class="col-md-10">
+        @Html.RadioButton("Hymynaama1", "neutraali", false)<img src="https://res.cloudinary.com/turdlife/image/upload/v1492864443/neutral_t3q8hz.svg" alt="neutraali" />
+        @Html.RadioButton("Hymynaama1", "surku", false) <img src="https://res.cloudinary.com/turdlife/image/upload/v1492864443/sad_bj1tuj.svg" alt="surku" />
+        @Html.RadioButton("Hymynaama1", "ilo", false) <img src="https://res.cloudinary.com/turdlife/image/upload/v1492864443/happy_ampvnc.svg" alt="ilo" />
+<input type="submit" value="Lähetä" class="btn btn-default" />
+    </div>
+</div>
 
