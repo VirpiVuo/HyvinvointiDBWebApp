@@ -1,34 +1,35 @@
 ﻿@model Hyvinvointisovellus.Hymynaama
 
 @{
-    ViewBag.Title = "Details";
+	ViewBag.Title = "Details";
 }
 
-<h2>Details</h2>
+<h2>Tietoja</h2>
 
 <div>
-    <h4>Hymynaama</h4>
-    <hr />
-    <dl class="dl-horizontal">
-        <dt>
-            @Html.DisplayNameFor(model => model.Hymynaama1)
-        </dt>
+	<h4>Hymynaama</h4>
+	<hr />
+	<dl class="dl-horizontal">
+		<dt>
+			@Html.DisplayNameFor(model => model.Hymynaama1)
+		</dt>
 
-        <dd>
-            @Html.DisplayFor(model => model.Hymynaama1)
-        </dd>
+		<dd>
+			@Html.DisplayFor(model => model.Hymynaama1)
+		</dd>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.Tyontekijat.Sukunimi)
-        </dt>
+		<dt>
+			@Html.DisplayNameFor(model => model.Tyontekijat.Sukunimi)
+		</dt>
 
-        <dd>
-            @Html.DisplayFor(model => model.Tyontekijat.Sukunimi)
-        </dd>
+		<dd>
+			@Html.DisplayFor(model => model.Tyontekijat.Sukunimi)
+		</dd>
 
-    </dl>
+	</dl>
 </div>
 <p>
-    @Html.ActionLink("Edit", "Edit", new { id = Model.HymynaamaID }) |
-    @Html.ActionLink("Back to List", "Index")
+	@Html.ActionLink("Muokkaa", "Edit", new { id = Model.HymynaamaID }, new { @class = "btn btn-info" }) |
+	<a class="btn btn-secondary" href="/Hymynaama">Takaisin</a>
 </p>
+
