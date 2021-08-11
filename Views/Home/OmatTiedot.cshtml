@@ -4,8 +4,14 @@
     ViewBag.Title = "Omattiedot";
 
 }
-<p></p>
-<h2>Omat Tiedot</h2>
+<div class="jumbotron">
+	<h1>Omat tiedot</h1>
+	<p class="lead">
+		Täällä pystyt tarkastelemaan omia tietojasi, kirjaamaan päivän fiiliksesi sekä antamaan palautetta työnantajallesi.
+	</p>
+	@*<p><a href="~/Home/Palautteet" class="btn btn-primary btn-lg">Lue palautteita  &raquo;</a></p>*@ @*<-- jumbotronin button, tarvitaanko?*@
+</div>
+
 
 <div class="form-group">
 	<h4>Millainen päiväsi oli tänään?</h4>
@@ -23,7 +29,7 @@
 		</div>
 	</div>
 	<div>
-		<input type="submit" value="Lähetä" class="btn-primary" />
+		<input type="submit" value="Lähetä" class="btn-primary" style="margin-top: 50px"/>
 	</div>
 </div>
 
