@@ -1,0 +1,40 @@
+﻿@model Hyvinvointisovellus.Hymynaama
+
+@{
+    ViewBag.Title = "Delete";
+}
+
+<h2>Poista</h2>
+
+<h3>Haluatko varmasti poistaa tämän?</h3>
+<div>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Hymynaama1)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Hymynaama1)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Tyontekijat.Sukunimi)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Tyontekijat.Sukunimi)
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm()) {
+        @Html.AntiForgeryToken()
+
+    <div class="form-actions no-color">
+	    <input type="submit" value="Delete" class="btn btn-default" /> |
+	    <a class="btn btn-secondary" href="/Hymynaama">Takaisin</a>
+
+    </div>
+    }
+</div>

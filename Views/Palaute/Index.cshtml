@@ -37,7 +37,7 @@
 	<td>
 		@Html.DisplayFor(modelItem => item.Tyontekijat.Sukunimi)
 	</td>
-	<td>
+	<td align="right">
 		@Html.ActionLink("Muokkaa", "Edit", new { id = item.PalauteID }, new { @class = "btn btn-outline-primary" })
 		@Html.ActionLink("Tietoja", "Details", new { id = item.PalauteID }, new { @class = "btn btn-outline-primary" })
 		@Html.ActionLink("Poista", "Delete", new { id = item.PalauteID }, new { @class = "btn btn-outline-primary" })

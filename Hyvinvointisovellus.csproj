@@ -131,6 +131,7 @@
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\HymynaamaController.cs" />
     <Compile Include="Controllers\PalauteController.cs" />
     <Compile Include="Controllers\TyontekijatController.cs" />
     <Compile Include="Global.asax.cs">
@@ -684,6 +685,11 @@
     <Content Include="Views\Tyontekijat\Edit.cshtml" />
     <Content Include="Views\Tyontekijat\Index.cshtml" />
     <Content Include="Views\Home\Omattiedot.cshtml" />
+    <Content Include="Views\Hymynaama\Create.cshtml" />
+    <Content Include="Views\Hymynaama\Delete.cshtml" />
+    <Content Include="Views\Hymynaama\Details.cshtml" />
+    <Content Include="Views\Hymynaama\Edit.cshtml" />
+    <Content Include="Views\Hymynaama\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include=".vs\HyvinvointiDBWebApp1\v16\" />

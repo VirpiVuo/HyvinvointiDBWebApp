@@ -1,7 +1,35 @@
-﻿
+﻿@model Hyvinvointisovellus.Hymynaama
+
 @{
     ViewBag.Title = "Omattiedot";
+
 }
-<p></p>
-<h2>Omat Tiedot</h2>
+<div class="jumbotron">
+	<h1>Omat tiedot</h1>
+	<p class="lead">
+		Täällä pystyt tarkastelemaan omia tietojasi, kirjaamaan päivän fiiliksesi sekä antamaan palautetta työnantajallesi.
+	</p>
+	@*<p><a href="~/Home/Palautteet" class="btn btn-primary btn-lg">Lue palautteita  &raquo;</a></p>*@ @*<-- jumbotronin button, tarvitaanko?*@
+</div>
+
+
+<div class="form-group">
+	<h4>Millainen päiväsi oli tänään?</h4>
+	@Html.LabelFor(model => model.Hymynaama1, htmlAttributes: new { @class = "control-label col-md-2" })
+
+	<div class="row">
+		<div class="col-md-3">
+			@Html.RadioButton("Hymynaama1", "neutraali", false)<img style ="width: 60%; padding: 10px" src="https://res.cloudinary.com/turdlife/image/upload/v1492864443/neutral_t3q8hz.svg" alt="neutraali" />
+		</div>
+		<div class="col-md-3">
+			@Html.RadioButton("Hymynaama1", "surku", false) <img style ="width: 60%; padding: 10px" src="https://res.cloudinary.com/turdlife/image/upload/v1492864443/sad_bj1tuj.svg" alt="surku" />
+		</div>
+		<div class="col-md-3">
+			@Html.RadioButton("Hymynaama1", "ilo", false) <img style ="width: 60%; padding: 10px" src="https://res.cloudinary.com/turdlife/image/upload/v1492864443/happy_ampvnc.svg" alt="ilo" />
+		</div>
+	</div>
+	<div>
+		<input type="submit" value="Lähetä" class="btn-primary" style="margin-top: 50px"/>
+	</div>
+</div>
 
