@@ -662,7 +662,9 @@
     <Content Include="Views\Shared\_Layout.cshtml" />
     <Content Include="Views\Home\About.cshtml" />
     <Content Include="Views\Home\Contact.cshtml" />
-    <Content Include="Views\Home\Index.cshtml" />
+    <Content Include="Views\Home\IndexTyonantaja.cshtml">
+      <BrowseToURL>~/Home/IndexTyonantaja</BrowseToURL>
+    </Content>
     <Content Include="Scripts\umd\popper.min.js.map" />
     <Content Include="Scripts\umd\popper.js.map" />
     <Content Include="Scripts\umd\popper-utils.min.js.map" />
@@ -683,12 +685,18 @@
     <Content Include="Views\Tyontekijat\Details.cshtml" />
     <Content Include="Views\Tyontekijat\Edit.cshtml" />
     <Content Include="Views\Tyontekijat\Index.cshtml" />
-    <Content Include="Views\Home\Omattiedot.cshtml" />
+    <Content Include="Views\Home\OmattiedotTyontekija.cshtml">
+      <BrowseToURL>~/Home/OmatTiedotTyontekija</BrowseToURL>
+    </Content>
     <Content Include="Views\Hymynaama\Create.cshtml" />
     <Content Include="Views\Hymynaama\Delete.cshtml" />
     <Content Include="Views\Hymynaama\Details.cshtml" />
     <Content Include="Views\Hymynaama\Edit.cshtml" />
     <Content Include="Views\Hymynaama\Index.cshtml" />
+    <Content Include="Views\Home\OmattiedotTyonantaja.cshtml">
+      <BrowseToURL>~/Home/OmattiedotTyonantaja</BrowseToURL>
+    </Content>
+    <Content Include="Views\Home\IndexTyontekija.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include=".vs\HyvinvointiDBWebApp1\v16\" />

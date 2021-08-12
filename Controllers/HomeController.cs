@@ -20,6 +20,26 @@ namespace Hyvinvointisovellus.Controllers
             else ViewBag.LoggedStatus = "Kirjautunut";
             return View();
         }
+        public ActionResult IndexTyonantaja()
+        {
+            if (Session["UserName"] == null)
+            {
+                ViewBag.LoggedStatus = "Ei kirjautunut";
+                return View("Kirjautuminen");
+            }
+            else ViewBag.LoggedStatus = "Kirjautunut";
+            return View();
+        }
+        public ActionResult IndexTyontekija()
+        {
+            if (Session["UserName"] == null)
+            {
+                ViewBag.LoggedStatus = "Ei kirjautunut";
+                return View("Kirjautuminen");
+            }
+            else ViewBag.LoggedStatus = "Kirjautunut";
+            return View();
+        }
 
         public ActionResult About()
         {
@@ -54,7 +74,11 @@ namespace Hyvinvointisovellus.Controllers
             else ViewBag.LoggedStatus = "Kirjautunut";
             return View();
         }
-        public ActionResult Omattiedot()
+        public ActionResult OmattiedotTyontekija()
+        {
+            return View();
+        }        
+        public ActionResult OmattiedotTyonantaja()
         {
             return View();
         }
@@ -71,7 +95,15 @@ namespace Hyvinvointisovellus.Controllers
                 //ViewBag.LoginMessage = "Kirjautuminen onnistui!";
                 ViewBag.LoggedStatus = "Kirjautunut";
                 Session["UserName"] = LoggedUser.Kayttajatunnus;
-                return RedirectToAction("Index", "Home"); //Tässä määritellään mihin onnistunut kirjautuminen johtaa --> Home/Index
+                if (LoggedUser.Kayttajatunnus == "Tiina")
+				{
+                    Session["Admin"] = LoggedUser.Kayttajatunnus;
+                    return RedirectToAction("IndexTyonantaja", "Home");
+                }
+                else 
+                { 
+                return RedirectToAction("IndexTyontekija", "Home"); //Tässä määritellään mihin onnistunut kirjautuminen johtaa --> Home/Index
+                }
             }
             else
             {
