@@ -96,7 +96,7 @@
           </Key>
           <Property Name="HymynaamaID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="TyontekijaID" Type="Int32" />
-          <Property Name="Hymynaama1" Type="Int32" />
+          <Property Name="Hymynaama1" Type="String" />
           <NavigationProperty Name="Tyontekijat" Relationship="Self.FK__Hymynaama__Tyont__693CA210" FromRole="Hymynaama" ToRole="Tyontekijat" />
         </EntityType>
         <EntityType Name="Kirjautuminen">
