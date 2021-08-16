@@ -28,13 +28,21 @@
 
     </dl>
 
-    @using (Html.BeginForm()) {
+    @using (Html.BeginForm())
+    {
         @Html.AntiForgeryToken()
 
-<div class="form-actions no-color">
-	<input type="submit" value="Poista" class="btn btn-danger" />
-	<a class="btn btn-secondary" href="/Tyontekijat">Takaisin</a>
+        <div class="form-actions no-color">
+            <input type="submit" value="Poista" class="btn btn-danger" onclick="meth_alert();" />
+            <a class="btn btn-secondary" href="/Tyontekijat">Takaisin</a>
+        </div>
 
-</div>
+        <script type="text/javascript">
+            meth_alert = function () {
+
+                alert("Työntekijä poistettu listalta!");
+            };
+        </script>
+
     }
 </div>
