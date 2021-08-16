@@ -32,13 +32,17 @@ namespace Hyvinvointisovellus.Controllers
         }
         public ActionResult IndexTyontekija()
         {
+
             if (Session["UserName"] == null)
             {
                 ViewBag.LoggedStatus = "Ei kirjautunut";
                 return View("Kirjautuminen");
             }
             else ViewBag.LoggedStatus = "Kirjautunut";
+
             return View();
+            throw new NotImplementedException();
+
         }
 
         public ActionResult About()
