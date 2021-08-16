@@ -13,10 +13,10 @@ namespace Hyvinvointisovellus
     using System.Data.Entity;
     using System.Data.Entity.Infrastructure;
     
-    public partial class HyvinvointiDBEntities : DbContext
+    public partial class HyvinvointiDBEntities1 : DbContext
     {
-        public HyvinvointiDBEntities()
-            : base("name=HyvinvointiDBEntities")
+        public HyvinvointiDBEntities1()
+            : base("name=HyvinvointiDBEntities1")
         {
         }
     

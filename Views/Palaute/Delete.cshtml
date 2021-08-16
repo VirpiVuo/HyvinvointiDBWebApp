@@ -9,39 +9,47 @@
 <h3>Haluatko varmasti poistaa tämän palautteen?</h3>
 <div>
     <hr />
-	<dl class="dl-horizontal">
-		<dt>
-			@Html.DisplayNameFor(model => model.Palaute1)
-		</dt>
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Palaute1)
+        </dt>
 
-		<dd>
-			@Html.DisplayFor(model => model.Palaute1)
-		</dd>
+        <dd>
+            @Html.DisplayFor(model => model.Palaute1)
+        </dd>
 
-		<dt>
-			@Html.DisplayNameFor(model => model.Tyontekijat.Etunimi)
-		</dt>
+        <dt>
+            @Html.DisplayNameFor(model => model.Tyontekijat.Etunimi)
+        </dt>
 
-		<dd>
-			@Html.DisplayFor(model => model.Tyontekijat.Etunimi)
-		</dd>
+        <dd>
+            @Html.DisplayFor(model => model.Tyontekijat.Etunimi)
+        </dd>
 
-		<dt>
-			@Html.DisplayNameFor(model => model.Tyontekijat.Sukunimi)
-		</dt>
+        <dt>
+            @Html.DisplayNameFor(model => model.Tyontekijat.Sukunimi)
+        </dt>
 
-		<dd>
-			@Html.DisplayFor(model => model.Tyontekijat.Sukunimi)
-		</dd>
+        <dd>
+            @Html.DisplayFor(model => model.Tyontekijat.Sukunimi)
+        </dd>
 
-	</dl>
+    </dl>
 
-    @using (Html.BeginForm()) {
+    @using (Html.BeginForm())
+    {
         @Html.AntiForgeryToken()
 
-<div class="form-actions no-color">
-	<input type="submit" value="Poista" class="btn btn-danger" />
-	<a class="btn btn-secondary" href="/Palaute">Takaisin</a>
-</div>
+        <div class="form-actions no-color">
+            <input type="submit" value="Poista" class="btn btn-danger" onclick="meth_alert();" />
+            <a class="btn btn-secondary" href="/Palaute">Takaisin</a>
+        </div>
+
+        <script type="text/javascript">
+            meth_alert = function () {
+                alert("Palaute poistettu onnistuneesti!");
+            };
+        </script>
+
     }
 </div>

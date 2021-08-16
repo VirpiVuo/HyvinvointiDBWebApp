@@ -22,8 +22,8 @@ namespace Hyvinvointisovellus
         }
     
         public int TyontekijaID { get; set; }
-        public string Sukunimi { get; set; }
         public string Etunimi { get; set; }
+        public string Sukunimi { get; set; }
         public string Osoite { get; set; }
         public string Postinumero { get; set; }
         public string Postitoimipaikka { get; set; }

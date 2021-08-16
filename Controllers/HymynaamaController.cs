@@ -12,7 +12,7 @@ namespace Hyvinvointisovellus.Controllers
 {
     public class HymynaamaController : Controller
     {
-        private HyvinvointiDBEntities db = new HyvinvointiDBEntities();
+        private HyvinvointiDBEntities1 db = new HyvinvointiDBEntities1();
 
         // GET: Hymynaama
         public ActionResult Index()

@@ -87,7 +87,7 @@ namespace Hyvinvointisovellus.Controllers
         [HttpPost]
         public ActionResult Authorize(Kirjautuminen LoginModel)
         {
-            HyvinvointiDBEntities db = new HyvinvointiDBEntities();
+            HyvinvointiDBEntities1 db = new HyvinvointiDBEntities1();
             //Haetaan käyttäjän/Loginin tiedot annetuilla tunnustiedoilla tietokannasta LINQ -kyselyllä
             var LoggedUser = db.Kirjautuminen.SingleOrDefault(x => x.Kayttajatunnus == LoginModel.Kayttajatunnus && x.Salasana == LoginModel.Salasana);
             if (LoggedUser != null)

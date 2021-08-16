@@ -4,14 +4,14 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-    <Schema Namespace="HyvinvointiDBModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012.Azure" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+      <Schema Namespace="HyvinvointiDBModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012.Azure" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
         <EntityType Name="Hymynaama">
           <Key>
             <PropertyRef Name="HymynaamaID" />
           </Key>
           <Property Name="HymynaamaID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="TyontekijaID" Type="int" />
-          <Property Name="Hymynaama" Type="int" />
+          <Property Name="Hymynaama" Type="nvarchar" MaxLength="50" />
         </EntityType>
         <EntityType Name="Kirjautuminen">
           <Key>
@@ -86,7 +86,8 @@
             <End Role="Palaute" EntitySet="Palaute" />
           </AssociationSet>
         </EntityContainer>
-      </Schema></edmx:StorageModels>
+      </Schema>
+    </edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema Namespace="HyvinvointiDBModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
@@ -96,7 +97,7 @@
           </Key>
           <Property Name="HymynaamaID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="TyontekijaID" Type="Int32" />
-          <Property Name="Hymynaama1" Type="String" />
+          <Property Name="Hymynaama1" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
           <NavigationProperty Name="Tyontekijat" Relationship="Self.FK__Hymynaama__Tyont__693CA210" FromRole="Hymynaama" ToRole="Tyontekijat" />
         </EntityType>
         <EntityType Name="Kirjautuminen">
@@ -128,13 +129,13 @@
             <PropertyRef Name="TyontekijaID" />
           </Key>
           <Property Name="TyontekijaID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="Sukunimi" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
-          <NavigationProperty Name="Hymynaama" Relationship="Self.FK__Hymynaama__Tyont__693CA210" FromRole="Tyontekijat" ToRole="Hymynaama" />
-          <NavigationProperty Name="Palaute" Relationship="Self.FK__Palaute__Tyontek__6A30C649" FromRole="Tyontekijat" ToRole="Palaute" />
           <Property Name="Etunimi" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Sukunimi" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
           <Property Name="Osoite" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="Postinumero" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="Postitoimipaikka" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="Hymynaama" Relationship="Self.FK__Hymynaama__Tyont__693CA210" FromRole="Tyontekijat" ToRole="Hymynaama" />
+          <NavigationProperty Name="Palaute" Relationship="Self.FK__Palaute__Tyontek__6A30C649" FromRole="Tyontekijat" ToRole="Palaute" />
         </EntityType>
         <Association Name="FK__Hymynaama__Tyont__693CA210">
           <End Role="Tyontekijat" Type="Self.Tyontekijat" Multiplicity="0..1" />
@@ -160,7 +161,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <EntityContainer Name="HyvinvointiDBEntities" annotation:LazyLoadingEnabled="true">
+        <EntityContainer Name="HyvinvointiDBEntities1" annotation:LazyLoadingEnabled="true">
           <EntitySet Name="Hymynaama" EntityType="Self.Hymynaama" />
           <EntitySet Name="Kirjautuminen" EntityType="Self.Kirjautuminen" />
           <EntitySet Name="Palaute" EntityType="Self.Palaute" />
@@ -180,7 +181,7 @@
     <!-- C-S mapping content -->
     <edmx:Mappings>
       <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
-        <EntityContainerMapping StorageEntityContainer="HyvinvointiDBModelStoreContainer" CdmEntityContainer="HyvinvointiDBEntities">
+        <EntityContainerMapping StorageEntityContainer="HyvinvointiDBModelStoreContainer" CdmEntityContainer="HyvinvointiDBEntities1">
           <EntitySetMapping Name="Hymynaama">
             <EntityTypeMapping TypeName="HyvinvointiDBModel.Hymynaama">
               <MappingFragment StoreEntitySet="Hymynaama">
@@ -219,12 +220,12 @@
           <EntitySetMapping Name="Tyontekijat">
             <EntityTypeMapping TypeName="HyvinvointiDBModel.Tyontekijat">
               <MappingFragment StoreEntitySet="Tyontekijat">
-                <ScalarProperty Name="Postitoimipaikka" ColumnName="Postitoimipaikka" />
-                <ScalarProperty Name="Postinumero" ColumnName="Postinumero" />
-                <ScalarProperty Name="Osoite" ColumnName="Osoite" />
-                <ScalarProperty Name="Etunimi" ColumnName="Etunimi" />
                 <ScalarProperty Name="TyontekijaID" ColumnName="TyontekijaID" />
+                <ScalarProperty Name="Etunimi" ColumnName="Etunimi" />
                 <ScalarProperty Name="Sukunimi" ColumnName="Sukunimi" />
+                <ScalarProperty Name="Osoite" ColumnName="Osoite" />
+                <ScalarProperty Name="Postinumero" ColumnName="Postinumero" />
+                <ScalarProperty Name="Postitoimipaikka" ColumnName="Postitoimipaikka" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
