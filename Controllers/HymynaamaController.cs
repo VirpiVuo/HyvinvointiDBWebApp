@@ -39,7 +39,7 @@ namespace Hyvinvointisovellus.Controllers
         // GET: Hymynaama/Create
         public ActionResult Create()
         {
-            ViewBag.TyontekijaID = new SelectList(db.Tyontekijat, "TyontekijaID", "Sukunimi");
+            ViewBag.TyontekijaID = new SelectList(db.Tyontekijat, "TyontekijaID", "Sukunimi","Pvm");
             return View();
         }
 
@@ -48,7 +48,7 @@ namespace Hyvinvointisovellus.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "HymynaamaID,TyontekijaID,Hymynaama1")] Hymynaama hymynaama)
+        public ActionResult Create([Bind(Include = "HymynaamaID,TyontekijaID,Hymynaama1,Pvm")] Hymynaama hymynaama)
         {
             if (ModelState.IsValid)
             {
