@@ -123,5 +123,14 @@ namespace Hyvinvointisovellus.Controllers
             ViewBag.LoggedStatus = "Ei kirjautunut";
             return RedirectToAction("Index", "Home"); //Uloskirjautumisen jälkeen pääsivulle
         }
+
+        public JsonResult GetEvents()
+        {
+            using (HyvinvointiDBEntities1 db = new HyvinvointiDBEntities1())
+            {
+                var events = db.Hymynaama.ToList();
+                return new JsonResult { Data = events, JsonRequestBehavior = JsonRequestBehavior.AllowGet };
+            }
+        }
     }
 }
