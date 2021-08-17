@@ -177,15 +177,6 @@ namespace Hyvinvointisovellus.Controllers
             base.Dispose(disposing);
         }
 
-        public JsonResult GetEvents()
-        {
-            using (HyvinvointiDBEntities1 db = new HyvinvointiDBEntities1())
-            {
-                var events = db.Hymynaama.ToList();
-                return new JsonResult { Data = events, JsonRequestBehavior = JsonRequestBehavior.AllowGet };
-            }
-        }
-
 
     }
 }
