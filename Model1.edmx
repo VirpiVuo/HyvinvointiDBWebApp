@@ -4,7 +4,7 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-      <Schema Namespace="HyvinvointiDBModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012.Azure" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+    <Schema Namespace="HyvinvointiDBModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012.Azure" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
         <EntityType Name="Hymynaama">
           <Key>
             <PropertyRef Name="HymynaamaID" />
@@ -12,6 +12,8 @@
           <Property Name="HymynaamaID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="TyontekijaID" Type="int" />
           <Property Name="Hymynaama" Type="nvarchar" MaxLength="50" />
+          <Property Name="Pvm" Type="date" />
+          <Property Name="Taustaväri" Type="nvarchar" MaxLength="10" />
         </EntityType>
         <EntityType Name="Kirjautuminen">
           <Key>
@@ -47,18 +49,6 @@
           <Property Name="Postinumero" Type="nvarchar" MaxLength="50" />
           <Property Name="Postitoimipaikka" Type="nvarchar" MaxLength="50" />
         </EntityType>
-        <Association Name="FK__Hymynaama__Tyont__693CA210">
-          <End Role="Tyontekijat" Type="Self.Tyontekijat" Multiplicity="0..1" />
-          <End Role="Hymynaama" Type="Self.Hymynaama" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Tyontekijat">
-              <PropertyRef Name="TyontekijaID" />
-            </Principal>
-            <Dependent Role="Hymynaama">
-              <PropertyRef Name="TyontekijaID" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
         <Association Name="FK__Palaute__Tyontek__6A30C649">
           <End Role="Tyontekijat" Type="Self.Tyontekijat" Multiplicity="0..1" />
           <End Role="Palaute" Type="Self.Palaute" Multiplicity="*" />
@@ -77,17 +67,12 @@
           <EntitySet Name="Palaute" EntityType="Self.Palaute" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Tyonantaja" EntityType="Self.Tyonantaja" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Tyontekijat" EntityType="Self.Tyontekijat" Schema="dbo" store:Type="Tables" />
-          <AssociationSet Name="FK__Hymynaama__Tyont__693CA210" Association="Self.FK__Hymynaama__Tyont__693CA210">
-            <End Role="Tyontekijat" EntitySet="Tyontekijat" />
-            <End Role="Hymynaama" EntitySet="Hymynaama" />
-          </AssociationSet>
           <AssociationSet Name="FK__Palaute__Tyontek__6A30C649" Association="Self.FK__Palaute__Tyontek__6A30C649">
             <End Role="Tyontekijat" EntitySet="Tyontekijat" />
             <End Role="Palaute" EntitySet="Palaute" />
           </AssociationSet>
         </EntityContainer>
-      </Schema>
-    </edmx:StorageModels>
+      </Schema></edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema Namespace="HyvinvointiDBModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
@@ -99,6 +84,8 @@
           <Property Name="TyontekijaID" Type="Int32" />
           <Property Name="Hymynaama1" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
           <NavigationProperty Name="Tyontekijat" Relationship="Self.FK__Hymynaama__Tyont__693CA210" FromRole="Hymynaama" ToRole="Tyontekijat" />
+          <Property Name="Pvm" Type="DateTime" Precision="0" />
+          <Property Name="Taustaväri" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
         </EntityType>
         <EntityType Name="Kirjautuminen">
           <Key>
@@ -185,6 +172,8 @@
           <EntitySetMapping Name="Hymynaama">
             <EntityTypeMapping TypeName="HyvinvointiDBModel.Hymynaama">
               <MappingFragment StoreEntitySet="Hymynaama">
+                <ScalarProperty Name="Taustaväri" ColumnName="Taustaväri" />
+                <ScalarProperty Name="Pvm" ColumnName="Pvm" />
                 <ScalarProperty Name="HymynaamaID" ColumnName="HymynaamaID" />
                 <ScalarProperty Name="TyontekijaID" ColumnName="TyontekijaID" />
                 <ScalarProperty Name="Hymynaama1" ColumnName="Hymynaama" />
