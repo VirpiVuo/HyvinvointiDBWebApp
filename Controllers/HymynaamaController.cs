@@ -62,7 +62,7 @@ namespace Hyvinvointisovellus.Controllers
                 ViewBag.LoggedStatus = "Ei kirjautunut";
             }
             else ViewBag.LoggedStatus = "Kirjautunut";
-            ViewBag.TyontekijaID = new SelectList(db.Tyontekijat, "TyontekijaID", "Sukunimi");
+            ViewBag.TyontekijaID = new SelectList(db.Tyontekijat, "TyontekijaID", "Sukunimi", "Start");
             return View();
         }
 
@@ -71,7 +71,7 @@ namespace Hyvinvointisovellus.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "HymynaamaID,TyontekijaID,Hymynaama1")] Hymynaama hymynaama)
+        public ActionResult Create([Bind(Include = "HymynaamaID,TyontekijaID,Hymynaama1,Start")] Hymynaama hymynaama)
         {
             if (Session["UserName"] == null)
             {
@@ -177,6 +177,13 @@ namespace Hyvinvointisovellus.Controllers
             base.Dispose(disposing);
         }
 
-
+        public JsonResult GetEvents()
+        {
+            using (HyvinvointiDBEntities1 db = new HyvinvointiDBEntities1())
+            {
+                var events = db.Hymynaama.ToList();
+                return new JsonResult { Data = events, JsonRequestBehavior = JsonRequestBehavior.AllowGet };
+            }
+        }
     }
 }

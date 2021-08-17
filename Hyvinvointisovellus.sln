@@ -5,8 +5,6 @@ VisualStudioVersion = 16.0.31424.327
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Hyvinvointisovellus", "Hyvinvointisovellus.csproj", "{50E95365-53C7-4D4B-90B6-EE699F46F830}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Hyvinvointisovellus.Tests", "Hyvinvointisovellus.Tests\Hyvinvointisovellus.Tests.csproj", "{AABB09FD-D376-49CF-86F8-EB5BC49BB8C4}"
-EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -17,10 +15,6 @@ Global
 		{50E95365-53C7-4D4B-90B6-EE699F46F830}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{50E95365-53C7-4D4B-90B6-EE699F46F830}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{50E95365-53C7-4D4B-90B6-EE699F46F830}.Release|Any CPU.Build.0 = Release|Any CPU
-		{AABB09FD-D376-49CF-86F8-EB5BC49BB8C4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{AABB09FD-D376-49CF-86F8-EB5BC49BB8C4}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{AABB09FD-D376-49CF-86F8-EB5BC49BB8C4}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{AABB09FD-D376-49CF-86F8-EB5BC49BB8C4}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
