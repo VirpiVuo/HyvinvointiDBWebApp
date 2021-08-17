@@ -4,12 +4,14 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using Hyvinvointisovellus;
-
+using System.Data.Entity;
+using System.Net;
 
 namespace Hyvinvointisovellus.Controllers
 {
     public class HomeController : Controller
     {
+
         public ActionResult Index()
         {
             if (Session["UserName"] == null)
@@ -78,9 +80,13 @@ namespace Hyvinvointisovellus.Controllers
             else ViewBag.LoggedStatus = "Kirjautunut";
             return View();
         }
+        
+        private HyvinvointiDBEntities1 db = new HyvinvointiDBEntities1();
+
         public ActionResult OmattiedotTyontekija()
         {
-            return View();
+            var hymynaama = db.Hymynaama.Include(h => h.Tyontekijat);
+            return View(hymynaama.ToList());
         }        
         public ActionResult OmattiedotTyonantaja()
         {

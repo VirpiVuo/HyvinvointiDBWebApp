@@ -20,6 +20,7 @@ namespace Hyvinvointisovellus.Controllers
             var hymynaama = db.Hymynaama.Include(h => h.Tyontekijat);
             return View(hymynaama.ToList());
         }
+        
 
         // GET: Hymynaama/Details/5
         public ActionResult Details(int? id)

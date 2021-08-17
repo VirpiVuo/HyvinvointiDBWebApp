@@ -7,7 +7,7 @@
 <h2>Päivän fiilis</h2>
 <p></p>
 <div>
-	<a class="btn btn-outline-primary" href="/Hymynaama/Create">Lisää tämän päivän fiiliksesi</a>
+    <a class="btn btn-outline-primary" href="/Hymynaama/Create">Lisää tämän päivän fiiliksesi</a>
 </div>
 <table class="table">
     <tr>
@@ -22,25 +22,26 @@
         </th>
     </tr>
 
-@foreach (var item in Model) {
-<tr>
-    <td>
-        @Html.DisplayFor(modelItem => item.Hymynaama1)
-    </td>
-    <td>
-        @Html.DisplayFor(modelItem => item.Tyontekijat.Sukunimi)
-    </td>
-    <td>
-        @Html.DisplayFor(modelItem => item.Pvm)
-    </td>
-    <td align="right">
-        @Html.ActionLink("Muokkaa", "Edit", new { id = item.HymynaamaID }, new { @class = "btn btn-outline-primary" })
-        @Html.ActionLink("Tietoja", "Details", new { id = item.HymynaamaID }, new { @class = "btn btn-outline-primary" })
-        @Html.ActionLink("Poista", "Delete", new { id = item.HymynaamaID }, new { @class = "btn btn-outline-primary" })
-    </td>
-    
-</tr>
-}
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Hymynaama1)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Tyontekijat.Sukunimi)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Pvm)
+            </td>
+            <td align="right">
+                @Html.ActionLink("Muokkaa", "Edit", new { id = item.HymynaamaID }, new { @class = "btn btn-outline-primary" })
+                @Html.ActionLink("Tietoja", "Details", new { id = item.HymynaamaID }, new { @class = "btn btn-outline-primary" })
+                @Html.ActionLink("Poista", "Delete", new { id = item.HymynaamaID }, new { @class = "btn btn-outline-primary" })
+            </td>
+
+        </tr>
+    }
 </table>
 <div>
     <a class="btn btn-outline-dark" href="/Home/IndexTyontekija">Takaisin etusivulle</a>
