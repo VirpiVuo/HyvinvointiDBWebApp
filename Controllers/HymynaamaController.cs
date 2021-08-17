@@ -17,13 +17,31 @@ namespace Hyvinvointisovellus.Controllers
         // GET: Hymynaama
         public ActionResult Index()
         {
-            var hymynaama = db.Hymynaama.Include(h => h.Tyontekijat);
-            return View(hymynaama.ToList());
+            if (Session["UserName"] == null)
+            {
+                ViewBag.LoggedStatus = "Ei kirjautunut";
+            }
+            else ViewBag.LoggedStatus = "Kirjautunut";
+            if (Session["UserName"] == null)
+            {
+                return RedirectToAction("Kirjautuminen", "Home");
+            }
+            else
+            {
+                var hymynaama = db.Hymynaama.Include(h => h.Tyontekijat);
+                return View(hymynaama.ToList());
+            }
+            
         }
 
         // GET: Hymynaama/Details/5
         public ActionResult Details(int? id)
         {
+            if (Session["UserName"] == null)
+            {
+                ViewBag.LoggedStatus = "Ei kirjautunut";
+            }
+            else ViewBag.LoggedStatus = "Kirjautunut";
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
@@ -39,6 +57,11 @@ namespace Hyvinvointisovellus.Controllers
         // GET: Hymynaama/Create
         public ActionResult Create()
         {
+            if (Session["UserName"] == null)
+            {
+                ViewBag.LoggedStatus = "Ei kirjautunut";
+            }
+            else ViewBag.LoggedStatus = "Kirjautunut";
             ViewBag.TyontekijaID = new SelectList(db.Tyontekijat, "TyontekijaID", "Sukunimi");
             return View();
         }
@@ -50,6 +73,11 @@ namespace Hyvinvointisovellus.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult Create([Bind(Include = "HymynaamaID,TyontekijaID,Hymynaama1")] Hymynaama hymynaama)
         {
+            if (Session["UserName"] == null)
+            {
+                ViewBag.LoggedStatus = "Ei kirjautunut";
+            }
+            else ViewBag.LoggedStatus = "Kirjautunut";
             if (ModelState.IsValid)
             {
                 db.Hymynaama.Add(hymynaama);
@@ -64,6 +92,11 @@ namespace Hyvinvointisovellus.Controllers
         // GET: Hymynaama/Edit/5
         public ActionResult Edit(int? id)
         {
+            if (Session["UserName"] == null)
+            {
+                ViewBag.LoggedStatus = "Ei kirjautunut";
+            }
+            else ViewBag.LoggedStatus = "Kirjautunut";
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
@@ -84,6 +117,11 @@ namespace Hyvinvointisovellus.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult Edit([Bind(Include = "HymynaamaID,TyontekijaID,Hymynaama1")] Hymynaama hymynaama)
         {
+            if (Session["UserName"] == null)
+            {
+                ViewBag.LoggedStatus = "Ei kirjautunut";
+            }
+            else ViewBag.LoggedStatus = "Kirjautunut";
             if (ModelState.IsValid)
             {
                 db.Entry(hymynaama).State = EntityState.Modified;
@@ -97,6 +135,11 @@ namespace Hyvinvointisovellus.Controllers
         // GET: Hymynaama/Delete/5
         public ActionResult Delete(int? id)
         {
+            if (Session["UserName"] == null)
+            {
+                ViewBag.LoggedStatus = "Ei kirjautunut";
+            }
+            else ViewBag.LoggedStatus = "Kirjautunut";
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
@@ -114,6 +157,11 @@ namespace Hyvinvointisovellus.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(int id)
         {
+            if (Session["UserName"] == null)
+            {
+                ViewBag.LoggedStatus = "Ei kirjautunut";
+            }
+            else ViewBag.LoggedStatus = "Kirjautunut";
             Hymynaama hymynaama = db.Hymynaama.Find(id);
             db.Hymynaama.Remove(hymynaama);
             db.SaveChanges();
