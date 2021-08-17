@@ -17,8 +17,6 @@ namespace Hyvinvointisovellus
         public int HymynaamaID { get; set; }
         public Nullable<int> TyontekijaID { get; set; }
         public string Hymynaama1 { get; set; }
-        public Nullable<System.DateTime> Pvm { get; set; }
-        public string Taustaväri { get; set; }
     
         public virtual Tyontekijat Tyontekijat { get; set; }
     }
