@@ -9,34 +9,37 @@
 <p></p>
 
 <div>
-	<a class="btn btn-info" href="/Tyontekijat/Create">Lisää uusi työntekijä</a>
+	<a class="btn btn-outline-primary" href="/Tyontekijat/Create">Lisää uusi työntekijä</a>
 </div>
 <p></p>
 <table class="table">
-	<tr>
-		<th>
-			@Html.DisplayNameFor(model => model.Etunimi)
-		</th>
-		<th>
-			@Html.DisplayNameFor(model => model.Sukunimi)
-		</th>
-		<th></th>
-	</tr>
-
-@foreach (var item in Model) {
     <tr>
-        <td>
-            @Html.DisplayFor(modelItem => item.Etunimi)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Sukunimi)
-        </td>
-        <td align="right">
-            @Html.ActionLink("Muokkaa", "Edit", new { id=item.TyontekijaID }, new { @class = "btn btn-outline-primary" })
-            @Html.ActionLink("Tietoja", "Details", new { id=item.TyontekijaID }, new { @class = "btn btn-outline-primary" })
-            @Html.ActionLink("Poista", "Delete", new { id=item.TyontekijaID }, new { @class = "btn btn-outline-primary" })
-        </td>
+        <th>
+            @Html.DisplayNameFor(model => model.Etunimi)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Sukunimi)
+        </th>
+        <th></th>
     </tr>
-}
 
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Etunimi)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Sukunimi)
+            </td>
+            <td align="right">
+                @Html.ActionLink("Muokkaa", "Edit", new { id = item.TyontekijaID }, new { @class = "btn btn-outline-primary" })
+                @Html.ActionLink("Tietoja", "Details", new { id = item.TyontekijaID }, new { @class = "btn btn-outline-primary" })
+                @Html.ActionLink("Poista", "Delete", new { id = item.TyontekijaID }, new { @class = "btn btn-outline-primary" })
+            </td>
+        </tr>
+    }
 </table>
+<div>
+    <a class="btn btn-outline-dark" href="/Home/IndexTyonantaja">Takaisin etusivulle</a>
+</div>
