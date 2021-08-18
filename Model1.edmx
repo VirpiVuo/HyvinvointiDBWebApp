@@ -15,6 +15,7 @@
           <Property Name="Start" Type="date" />
           <Property Name="End" Type="date" />
           <Property Name="ThemeColor" Type="nvarchar" MaxLength="50" />
+          <Property Name="IsFullDay" Type="bit" />
         </EntityType>
         <EntityType Name="Kirjautuminen">
           <Key>
@@ -88,6 +89,7 @@
           <Property Name="Start" Type="DateTime" Precision="0" />
           <Property Name="End" Type="DateTime" Precision="0" />
           <Property Name="ThemeColor" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="IsFullDay" Type="Boolean" />
         </EntityType>
         <EntityType Name="Kirjautuminen">
           <Key>
@@ -174,6 +176,7 @@
           <EntitySetMapping Name="Hymynaama">
             <EntityTypeMapping TypeName="HyvinvointiDBModel.Hymynaama">
               <MappingFragment StoreEntitySet="Hymynaama">
+                <ScalarProperty Name="IsFullDay" ColumnName="IsFullDay" />
                 <ScalarProperty Name="ThemeColor" ColumnName="ThemeColor" />
                 <ScalarProperty Name="End" ColumnName="End" />
                 <ScalarProperty Name="Start" ColumnName="Start" />

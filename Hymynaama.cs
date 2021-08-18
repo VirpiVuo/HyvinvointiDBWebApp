@@ -20,6 +20,7 @@ namespace Hyvinvointisovellus
         public Nullable<System.DateTime> Start { get; set; }
         public Nullable<System.DateTime> End { get; set; }
         public string ThemeColor { get; set; }
+        public Nullable<bool> IsFullDay { get; set; }
     
         public virtual Tyontekijat Tyontekijat { get; set; }
     }

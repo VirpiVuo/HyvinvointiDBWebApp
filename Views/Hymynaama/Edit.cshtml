@@ -35,30 +35,55 @@
 			@Html.ValidationMessageFor(model => model.Hymynaama1, "", new { @class = "text-danger" })
 		</div>*@
 
-		<div class="form-group">
-			@Html.LabelFor(model => model.Start, "Päivä (kirjoita muodossa 2021-07-31)", htmlAttributes: new { @class = "control-label col-md-2" })
+	<div class="form-group">
+		@Html.LabelFor(model => model.Start, "Päivä (kirjoita muodossa 2021-07-31)", htmlAttributes: new { @class = "control-label col-md-2" })
+		<div class="col-md-10">
+			@Html.EditorFor(model => model.Start, new { htmlAttributes = new { @class = "form-control" } })
+			@Html.ValidationMessageFor(model => model.Start, "", new { @class = "text-danger" })
+		</div>
+	</div>
+
+	<div class="form-group">
+		@Html.LabelFor(model => model.End, "End", htmlAttributes: new { @class = "control-label col-md-2" })
+		<div class="col-md-10">
+			@Html.EditorFor(model => model.End, new { htmlAttributes = new { @class = "form-control" } })
+			@Html.ValidationMessageFor(model => model.End, "", new { @class = "text-danger" })
+		</div>
+	</div>
+
+	@*<div class="form-group">
+			@Html.LabelFor(model => model.ThemeColor, htmlAttributes: new { @class = "control-label col-md-2" })
 			<div class="col-md-10">
-				<div class="col-md-10">
-					@Html.EditorFor(model => model.Start, new { htmlAttributes = new { @class = "form-control" } })
-					@Html.ValidationMessageFor(model => model.Start, "", new { @class = "text-danger" })
-				</div>
+				@Html.EditorFor(model => model.ThemeColor, new { htmlAttributes = new { @class = "form-control" } })
+				@Html.ValidationMessageFor(model => model.ThemeColor, "", new { @class = "text-danger" })
 			</div>
+		</div>*@
 
-				<div class="form-group">
-					<div class="col-md-offset-2 col-md-10">
-						<input type="submit" value="Tallenna" class="btn btn-info" onclick="meth_alert();" />
-						<a class="btn btn-secondary" href="/Hymynaama">Takaisin</a>
-					</div>
-
-					<script type="text/javascript">
-						meth_alert = function () {
-
-							alert("Päivän fiilistiedon muutokset tallennettu!");
-						};
-					</script>
-
-				</div>
+	<div class="form-group">
+		@Html.LabelFor(model => model.IsFullDay, htmlAttributes: new { @class = "control-label col-md-2" })
+		<div class="col-md-10">
+			<div class="checkbox">
+				@Html.EditorFor(model => model.IsFullDay)
+				@Html.ValidationMessageFor(model => model.IsFullDay, "", new { @class = "text-danger" })
 			</div>
+		</div>
+	</div>
+
+	<div class="form-group">
+		<div class="col-md-offset-2 col-md-10">
+			<input type="submit" value="Tallenna" class="btn btn-info" onclick="meth_alert();" />
+			<a class="btn btn-secondary" href="/Hymynaama">Takaisin</a>
+		</div>
+
+		<script type="text/javascript">
+			meth_alert = function () {
+
+				alert("Päivän fiilistiedon muutokset tallennettu!");
+			};
+		</script>
+
+	</div>
+</div>
 			}
 
 
