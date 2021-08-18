@@ -15,8 +15,6 @@
 
 <p></p>
 
-
-
 <div id="calender"></div>
 
 <div id="myModal" class="modal fade" role="dialog">
@@ -54,7 +52,7 @@
 				success: function (data) {
 					$.each(data, function (i, v) {
 						events.push({
-							title: v.Hymynaama1,
+							title: v.Hymynaama1, v.Sukunimi,
 							start: moment(v.Start),
 							end: v.End != null ? moment(v.End) : null,
 							allDay: v.IsFullDay,
@@ -108,8 +106,8 @@
 		<th>@Html.DisplayNameFor(model => model.Hymynaama1)</th>
 		<th>@Html.DisplayNameFor(model => model.Tyontekijat.Sukunimi)</th>
 		<th>@Html.DisplayNameFor(model => model.Start)</th>
-		<th>@Html.DisplayNameFor(model => model.End)</th>
-		<th>@Html.DisplayNameFor(model => model.IsFullDay)</th>
+		@*<th>@Html.DisplayNameFor(model => model.End)</th>
+		<th>@Html.DisplayNameFor(model => model.IsFullDay)</th>*@
 	</tr>
 
 	@foreach (var item in Model)
@@ -118,8 +116,8 @@
 			<td>@Html.DisplayFor(modelItem => item.Hymynaama1)</td>
 			<td>@Html.DisplayFor(modelItem => item.Tyontekijat.Sukunimi)</td>
 			<td>@Html.DisplayFor(modelItem => item.Start)</td>
-			<td>@Html.DisplayFor(modelItem => item.End)</td>
-			<td>@Html.DisplayFor(modelItem => item.IsFullDay)</td>
+			@*<td>@Html.DisplayFor(modelItem => item.End)</td>
+			<td>@Html.DisplayFor(modelItem => item.IsFullDay)</td>*@
 			<td align="right">
 				@Html.ActionLink("Muokkaa", "Edit", new { id = item.HymynaamaID }, new { @class = "btn btn-outline-primary" })
 				@Html.ActionLink("Tietoja", "Details", new { id = item.HymynaamaID }, new { @class = "btn btn-outline-primary" })
