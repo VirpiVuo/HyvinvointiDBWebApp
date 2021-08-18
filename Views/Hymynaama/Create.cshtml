@@ -4,56 +4,77 @@
     ViewBag.Title = "Create";
 }
 
-<h2>Create</h2>
+<h2>Luo uusi mieliala</h2>
 
 
 @using (Html.BeginForm()) 
 {
     @Html.AntiForgeryToken()
     
-    <div class="form-horizontal">
-        <h4>Hymynaama</h4>
-        <hr />
-        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
-        <div class="form-group">
-            @Html.LabelFor(model => model.TyontekijaID, "TyontekijaID", htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.DropDownList("TyontekijaID", null, htmlAttributes: new { @class = "form-control" })
-                @Html.ValidationMessageFor(model => model.TyontekijaID, "", new { @class = "text-danger" })
-            </div>
-        </div>
+<div class="form-horizontal">
+	<h4>Hymynaama</h4>
+	<hr />
+	@Html.ValidationSummary(true, "", new { @class = "text-danger" })
+	<div class="form-group">
+		@Html.LabelFor(model => model.TyontekijaID, "Sukunimi", htmlAttributes: new { @class = "control-label col-md-2" })
+		<div class="col-md-10">
+			@Html.DropDownList("TyontekijaID", null, htmlAttributes: new { @class = "form-control" })
+			@Html.ValidationMessageFor(model => model.TyontekijaID, "", new { @class = "text-danger" })
+		</div>
+	</div>
 
-    <div class="form-group">
-        @Html.RadioButton("Hymynaama1", "Neutraali", false)<img src="https://res.cloudinary.com/turdlife/image/upload/v1492864443/neutral_t3q8hz.svg" alt="neutraali" />
-        @Html.RadioButton("Hymynaama1", "Negatiivinen", false) <img src="https://res.cloudinary.com/turdlife/image/upload/v1492864443/sad_bj1tuj.svg" alt="surku" />
-        @Html.RadioButton("Hymynaama1", "Positiivinen", false) <img src="https://res.cloudinary.com/turdlife/image/upload/v1492864443/happy_ampvnc.svg" alt="ilo" />
+	<div class="form-group">
+		@Html.RadioButton("Hymynaama1", "Positiivinen", false) <img src="https://res.cloudinary.com/turdlife/image/upload/v1492864443/happy_ampvnc.svg" alt="ilo" />
+		@Html.RadioButton("Hymynaama1", "Neutraali", false)<img src="https://res.cloudinary.com/turdlife/image/upload/v1492864443/neutral_t3q8hz.svg" alt="neutraali" />
+		@Html.RadioButton("Hymynaama1", "Negatiivinen", false) <img src="https://res.cloudinary.com/turdlife/image/upload/v1492864443/sad_bj1tuj.svg" alt="surku" />
 
-        <div class="col-md-10">
-            @Html.EditorFor(model => model.Hymynaama1, new { htmlAttributes = new { @class = "form-control" } })
-            @Html.ValidationMessageFor(model => model.Hymynaama1, "", new { @class = "text-danger" })
-        </div>
-    </div>
-    <div class="form-group">
-        @Html.LabelFor(model => model.Start, htmlAttributes: new { @class = "control-label col-md-2" })
-        <div class="col-md-10">
-            @Html.EditorFor(model => model.Start, new { htmlAttributes = new { @class = "form-control" } })
-            @Html.ValidationMessageFor(model => model.Start, "", new { @class = "text-danger" })
-        </div>
-    </div>
-    <div class="form-group">
-        <div class="col-md-offset-2 col-md-10">
-            <input type="submit" value="Tallenna" class="btn btn-outline-primary" onclick="meth_alert();" />
-            <a class="btn btn-outline-dark" href="/Hymynaama">Takaisin</a>
-        </div>
+		<div class="col-md-10">
+			@Html.EditorFor(model => model.Hymynaama1, new { htmlAttributes = new { @class = "form-control" } })
+			@Html.ValidationMessageFor(model => model.Hymynaama1, "", new { @class = "text-danger" })
+		</div>
+	</div>
 
-        <script type="text/javascript">
-            meth_alert = function () {
+	<div class="form-group">
+		@Html.LabelFor(model => model.Start, htmlAttributes: new { @class = "control-label col-md-2" })
+		<div class="col-md-10">
+			@Html.EditorFor(model => model.Start, new { htmlAttributes = new { @class = "form-control" } })
+			@Html.ValidationMessageFor(model => model.Start, "", new { @class = "text-danger" })
+		</div>
+	</div>
 
-                alert("Päivän fiilistiedot tallennettu!");
-            };
-        </script>
+	@*<div class="form-group">
+		@Html.LabelFor(model => model.End, htmlAttributes: new { @class = "control-label col-md-2" })
+		<div class="col-md-10">
+			<a>Voit valita vaihtoehdon IsFullDay</a>
+			@Html.EditorFor(model => model.End, new { htmlAttributes = new { @class = "form-control" } })
+			@Html.ValidationMessageFor(model => model.End, "", new { @class = "text-danger" })
+		</div>
+	</div>*@
 
-    </div>
+	<div class="form-group">
+		@Html.LabelFor(model => model.IsFullDay, htmlAttributes: new { @class = "control-label col-md-2" })
+		<div class="col-md-10">
+			<div class="checkbox">
+				@Html.EditorFor(model => model.IsFullDay)
+				@Html.ValidationMessageFor(model => model.IsFullDay, "", new { @class = "text-danger" })
+			</div>
+		</div>
+	</div>
+
+	<div class="form-group">
+		<div class="col-md-offset-2 col-md-10">
+			<input type="submit" value="Tallenna" class="btn btn-outline-primary" onclick="meth_alert();" />
+			<a class="btn btn-outline-dark" href="/Hymynaama">Takaisin</a>
+		</div>
+
+		<script type="text/javascript">
+			meth_alert = function () {
+
+				alert("Päivän fiilistiedot tallennettu!");
+			};
+		</script>
+
+	</div>
 </div>
 }
 
