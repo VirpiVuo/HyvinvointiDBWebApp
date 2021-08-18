@@ -10,30 +10,12 @@
 <div>
     <hr />
     <dl class="dl-horizontal">
-        <dt>
-            @Html.DisplayNameFor(model => model.Hymynaama1)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.Hymynaama1)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.Tyontekijat.Sukunimi)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.Tyontekijat.Sukunimi)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.Start)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.Start)
-        </dd>
-
+        <dt>@Html.DisplayNameFor(model => model.Hymynaama1)</dt>
+        <dd>@Html.DisplayFor(model => model.Hymynaama1)</dd>
+        <dt>@Html.DisplayNameFor(model => model.Tyontekijat.Sukunimi)</dt>
+        <dd>@Html.DisplayFor(model => model.Tyontekijat.Sukunimi)</dd>
+        <dt>@Html.DisplayNameFor(model => model.Start)</dt>
+        <dd>@Html.DisplayFor(model => model.Start)</dd>
     </dl>
 
     @using (Html.BeginForm())
@@ -41,7 +23,7 @@
         @Html.AntiForgeryToken()
 
         <div class="form-actions no-color">
-            <input type="submit" value="Delete" class="btn btn-default" onclick="meth_alert();" /> |
+            <input type="submit" value="Delete" class="btn btn-danger" onclick="meth_alert();" /> |
             <a class="btn btn-secondary" href="/Hymynaama">Takaisin</a>
         </div>
 

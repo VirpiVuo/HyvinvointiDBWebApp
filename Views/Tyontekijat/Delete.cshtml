@@ -10,22 +10,10 @@
 <div>
     <hr />
     <dl class="dl-horizontal">
-        <dt>
-            @Html.DisplayNameFor(model => model.Etunimi)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.Etunimi)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.Sukunimi)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.Sukunimi)
-        </dd>
-
+        <dt>@Html.DisplayNameFor(model => model.Etunimi)</dt>
+        <dd>@Html.DisplayFor(model => model.Etunimi)</dd>
+        <dt>@Html.DisplayNameFor(model => model.Sukunimi)</dt>
+        <dd>@Html.DisplayFor(model => model.Sukunimi)</dd>
     </dl>
 
     @using (Html.BeginForm())
