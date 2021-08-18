@@ -8,33 +8,44 @@
 <p></p>
 
 <div>
-    <a class="btn btn-info" href="/Palaute/Create">Lisää uusi palaute</a>
+	<a class="btn btn-primary" href="/Palaute/Create">Lisää uusi palaute</a>
 </div>
 
 <p></p>
 <table class="table">
-    <tr>
-        <th>@Html.DisplayNameFor(model => model.Palaute1)</th>
-        <th>@Html.DisplayNameFor(model => model.Tyontekijat.Etunimi)</th>
-        <th>@Html.DisplayNameFor(model => model.Tyontekijat.Sukunimi)</th>
-        <th></th>
-    </tr>
+	<tr>
+		<th>@Html.DisplayNameFor(model => model.Palaute1)</th>
+		<th>@Html.DisplayNameFor(model => model.Tyontekijat.Etunimi)</th>
+		<th>@Html.DisplayNameFor(model => model.Tyontekijat.Sukunimi)</th>
+		<th></th>
+	</tr>
 
-    @foreach (var item in Model)
-    {
-        <tr>
-            <td>@Html.DisplayFor(modelItem => item.Palaute1)</td>
-            <td>@Html.DisplayFor(modelItem => item.Tyontekijat.Etunimi)</td>
-            <td>@Html.DisplayFor(modelItem => item.Tyontekijat.Sukunimi)</td>
-            <td align="right">
-                @Html.ActionLink("Muokkaa", "Edit", new { id = item.PalauteID }, new { @class = "btn btn-outline-primary" })
-                @Html.ActionLink("Tietoja", "Details", new { id = item.PalauteID }, new { @class = "btn btn-outline-primary" })
-                @Html.ActionLink("Poista", "Delete", new { id = item.PalauteID }, new { @class = "btn btn-outline-primary" })
-            </td>
-        </tr>
-    }
+@foreach (var item in Model) {
+<tr>
+	<td>
+		@Html.DisplayFor(modelItem => item.Palaute1)
+	</td>
+	<td>
+		@Html.DisplayFor(modelItem => item.Tyontekijat.Etunimi)
+	</td>
+	<td>
+		@Html.DisplayFor(modelItem => item.Tyontekijat.Sukunimi)
+	</td>
+	<td align="right">
+		@Html.ActionLink("Muokkaa", "Edit", new { id = item.PalauteID }, new { @class = "btn btn-outline-primary" })
+		@Html.ActionLink("Tietoja", "Details", new { id = item.PalauteID }, new { @class = "btn btn-outline-primary" })
+		@Html.ActionLink("Poista", "Delete", new { id = item.PalauteID }, new { @class = "btn btn-outline-primary" })
+	</td>
+</tr>
+}
 </table>
 <div>
-        <a class="btn btn-secondary" href="/Home/IndexTyontekija">Takaisin etusivulle</a>
-    </div>
-
+	@if (Session["Admin"] != null)
+	{
+		<a class="btn btn-outline-dark" href="/Home/IndexTyonantaja">Takaisin etusivulle</a>
+	}
+	else
+	{
+		<a class="btn btn-outline-dark" href="/Home/IndexTyontekija">Takaisin etusivulle</a>
+	}
+</div>
