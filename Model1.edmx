@@ -12,8 +12,9 @@
           <Property Name="HymynaamaID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="TyontekijaID" Type="int" />
           <Property Name="Hymynaama" Type="nvarchar" MaxLength="50" />
-          <Property Name="Pvm" Type="date" />
-          <Property Name="Taustaväri" Type="nvarchar" MaxLength="10" />
+          <Property Name="Start" Type="date" />
+          <Property Name="End" Type="date" />
+          <Property Name="ThemeColor" Type="nvarchar" MaxLength="50" />
         </EntityType>
         <EntityType Name="Kirjautuminen">
           <Key>
@@ -84,8 +85,9 @@
           <Property Name="TyontekijaID" Type="Int32" />
           <Property Name="Hymynaama1" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
           <NavigationProperty Name="Tyontekijat" Relationship="Self.FK__Hymynaama__Tyont__693CA210" FromRole="Hymynaama" ToRole="Tyontekijat" />
-          <Property Name="Pvm" Type="DateTime" Precision="0" />
-          <Property Name="Taustaväri" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+          <Property Name="Start" Type="DateTime" Precision="0" />
+          <Property Name="End" Type="DateTime" Precision="0" />
+          <Property Name="ThemeColor" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
         </EntityType>
         <EntityType Name="Kirjautuminen">
           <Key>
@@ -172,8 +174,9 @@
           <EntitySetMapping Name="Hymynaama">
             <EntityTypeMapping TypeName="HyvinvointiDBModel.Hymynaama">
               <MappingFragment StoreEntitySet="Hymynaama">
-                <ScalarProperty Name="Taustaväri" ColumnName="Taustaväri" />
-                <ScalarProperty Name="Pvm" ColumnName="Pvm" />
+                <ScalarProperty Name="ThemeColor" ColumnName="ThemeColor" />
+                <ScalarProperty Name="End" ColumnName="End" />
+                <ScalarProperty Name="Start" ColumnName="Start" />
                 <ScalarProperty Name="HymynaamaID" ColumnName="HymynaamaID" />
                 <ScalarProperty Name="TyontekijaID" ColumnName="TyontekijaID" />
                 <ScalarProperty Name="Hymynaama1" ColumnName="Hymynaama" />

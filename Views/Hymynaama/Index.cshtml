@@ -9,6 +9,7 @@
 <div>
 	<a class="btn btn-outline-primary" href="/Hymynaama/Create">Lisää tämän päivän fiiliksesi</a>
 </div>
+<p></p>
 <table class="table">
 	<tr>
 		<th>
@@ -18,7 +19,7 @@
 			@Html.DisplayNameFor(model => model.Tyontekijat.Sukunimi)
 		</th>
 		<th>
-			@Html.DisplayNameFor(model => model.Pvm)
+			@Html.DisplayNameFor(model => model.Start)
 		</th>
 	</tr>
 
@@ -32,7 +33,7 @@
 				@Html.DisplayFor(modelItem => item.Tyontekijat.Sukunimi)
 			</td>
 			<td>
-				@Html.DisplayFor(modelItem => item.Pvm)
+				@Html.DisplayFor(modelItem => item.Start)
 			</td>
 			<td align="right">
 				@Html.ActionLink("Muokkaa", "Edit", new { id = item.HymynaamaID }, new { @class = "btn btn-outline-primary" })
@@ -43,9 +44,9 @@
 		</tr>
 	}
 </table>
-
-<p></p>
-<p></p>
+<div>
+	<a class="btn btn-outline-dark" href="/Home/IndexTyontekija">Takaisin etusivulle</a>
+</div>
 
 <div id="calender"></div>
 
@@ -75,26 +76,28 @@
 	<script src="//cdnjs.cloudflare.com/ajax/libs/fullcalendar/3.4.0/fullcalendar.min.js"></script>
 	<script src="//cdnjs.cloudflare.com/ajax/libs/fullcalendar/3.4.0/locale/fi.js"></script>
 
-	<script>$(document).ready(function () {
+	<script>
+		$(document).ready(function () {
 			var events = [];
 			$.ajax({
 				type: "GET",
-				url: "/home/GetEvents",
+				url: "/Hymynaama/GetEvents",
 				success: function (data) {
 					$.each(data, function (i, v) {
 						events.push({
-							title: v.Hymynaama,
-							start: moment(v.Alku),
-/*							end: v.End != null ? moment(v.End) : null,*/
-							color: v.Taustaväri
+							title: v.Hymynaama1,
+							start: moment(v.Start),
+							end: v.End != null ? moment(v.End) : null,
 						});
 					})
+
 					GenerateCalender(events);
 				},
 				error: function (error) {
-					alert('failed');
+					alert('failed to show calendar');
 				}
 			})
+
 			function GenerateCalender(events) {
 				$('#calender').fullCalendar('destroy');
 				$('#calender').fullCalendar({
@@ -119,13 +122,11 @@
 						}
 						$description.append($('<p/>').html('<b>Description:</b>' + calEvent.description));
 						$('#myModal #pDetails').empty().html($description);
+
 						$('#myModal').modal();
 					}
 				})
 			}
-		})</script>
-
-	<div>
-		<a class="btn btn-outline-dark" href="/Home/IndexTyontekija">Takaisin etusivulle</a>
-	</div>
-	}
+		})
+	</script>
+}
