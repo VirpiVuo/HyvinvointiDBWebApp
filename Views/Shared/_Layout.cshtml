@@ -15,11 +15,11 @@
 		<div class="container-fluid">
 			@if (Session["Admin"] != null)
 			{
-				<a class="navbar-brand" href="~/Home/IndexTyonantaja">SOVELLUS-X</a> 
+				<a class="navbar-brand" href="~/Home/IndexTyonantaja">Hyvinvointisovellus</a> 
 			}
 			else
 			{
-				<a class="navbar-brand" href="~/Home/IndexTyontekija">SOVELLUS-X</a>
+				<a class="navbar-brand" href="~/Home/IndexTyontekija">Hyvinvointisovellus</a>
 			}
 
 				<button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarColor02" aria-controls="navbarColor02" aria-expanded="false" aria-label="Toggle navigation">
@@ -36,6 +36,9 @@
 						{
 							<li class="nav-item">
 								<a class="nav-link" href="~/Home/OmattiedotTyonantaja">Omat tiedot</a>
+							</li>
+							<li class="nav-item">
+								<a class="nav-link" href="Tyontekijat/Index">Työntekijät</a>
 							</li>
 							<li class="nav-item">
 								<a class="nav-link" href="~/Home/Logout">Kirjaudu ulos</a>
