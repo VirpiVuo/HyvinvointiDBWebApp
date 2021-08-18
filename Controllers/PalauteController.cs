@@ -101,6 +101,8 @@ namespace Hyvinvointisovellus.Controllers
         }
 
         // GET: Palaute/Edit/5
+
+
         public ActionResult Edit(int? id)
         {
             if (Session["UserName"] == null)
