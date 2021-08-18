@@ -15,7 +15,7 @@
 <h2>Päivän fiilis</h2>
 <p></p>
 <div>
-	<a class="btn btn-outline-primary" href="/Hymynaama/Create">Lisää tämän päivän fiiliksesi</a>
+	<a class="btn btn-info" href="/Hymynaama/Create">Lisää tämän päivän fiiliksesi</a>
 </div>
 <p></p>
 <div id="calender"></div>
@@ -39,7 +39,6 @@
 
 <link href="//cdnjs.cloudflare.com/ajax/libs/fullcalendar/3.4.0/fullcalendar.min.css" rel="stylesheet" />
 <link href="//cdnjs.cloudflare.com/ajax/libs/fullcalendar/3.4.0/fullcalendar.print.css" rel="stylesheet" media="print" />
-
 
 @section Scripts{
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.18.1/moment.min.js"></script>
@@ -125,7 +124,6 @@
 				@Html.ActionLink("Tietoja", "Details", new { id = item.HymynaamaID }, new { @class = "btn btn-outline-primary" })
 				@Html.ActionLink("Poista", "Delete", new { id = item.HymynaamaID }, new { @class = "btn btn-outline-primary" })
 			</td>
-
 		</tr>
 	}
 </table>
