@@ -3,13 +3,19 @@
 @{
 	ViewBag.Title = "Index";
 }
+<div class="jumbotron">
+	<h1>Palautteet</h1>
+	<p class="lead">
+		Tarkastele palautteita.
+	</p>
+	@*<p><a href="~/Home/Palautteet" class="btn btn-primary btn-lg">Lue palautteita  &raquo;</a></p>*@ @*<-- jumbotronin button, tarvitaanko?*@
+</div>
 <p></p>
-<h2>Palautteet</h2>
 <p></p>
 <div>
 	@if (Session["Admin"] == null)
 	{
-		<a class="btn btn-primary" href="/Palaute/Create">Lisää uusi palaute</a>
+		<a class="btn btn-info" href="/Palaute/Create">Lisää uusi palaute</a>
 	}
 </div>
 

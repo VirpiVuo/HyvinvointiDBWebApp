@@ -3,9 +3,13 @@
 @{
     ViewBag.Title = "Index";
 }
-<p></p>
-<h2>Tietoja työntekijöistä</h2>
-<p></p>
+<div class="jumbotron">
+	<h1>Työntekijät</h1>
+	<p class="lead">
+		Tarkastele työntekijöitä.
+	</p>
+	@*<p><a href="~/Home/Palautteet" class="btn btn-primary btn-lg">Lue palautteita  &raquo;</a></p>*@ @*<-- jumbotronin button, tarvitaanko?*@
+</div>
 
 <div>
 	<a class="btn btn-info" href="/Tyontekijat/Create">Lisää uusi työntekijä</a>

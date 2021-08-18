@@ -4,7 +4,13 @@
     ViewBag.Title = "Create";
 }
 <p></p>
-<h2>Luo uusi palaute</h2>           @*eikös tämä näy vain työntekijöille? piilossa Tiina Työnantajalta?*@
+<div class="jumbotron">
+	<h1>Palautteet</h1>
+	<p class="lead">
+		Luo palautteita.
+	</p>
+	@*<p><a href="~/Home/Palautteet" class="btn btn-primary btn-lg">Lue palautteita  &raquo;</a></p>*@ @*<-- jumbotronin button, tarvitaanko?*@
+</div>
 
 
 @using (Html.BeginForm())

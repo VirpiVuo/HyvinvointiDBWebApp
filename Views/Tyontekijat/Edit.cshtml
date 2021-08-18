@@ -3,9 +3,13 @@
 @{
     ViewBag.Title = "Edit";
 }
-<p></p>
-<h2>Muokkaa työntekijöitä</h2>
-
+<div class="jumbotron">
+	<h1>Työntekijät</h1>
+	<p class="lead">
+		Muokkaa työntekijöitä.
+	</p>
+	@*<p><a href="~/Home/Palautteet" class="btn btn-primary btn-lg">Lue palautteita  &raquo;</a></p>*@ @*<-- jumbotronin button, tarvitaanko?*@
+</div>
 @using (Html.BeginForm())
 {
     @Html.AntiForgeryToken()
