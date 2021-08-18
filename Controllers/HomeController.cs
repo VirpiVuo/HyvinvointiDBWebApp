@@ -21,6 +21,7 @@ namespace Hyvinvointisovellus.Controllers
             }
             else ViewBag.LoggedStatus = "Kirjautunut";
             return View();
+            throw new NotImplementedException();
         }
         public ActionResult IndexTyonantaja()
         {
@@ -31,6 +32,7 @@ namespace Hyvinvointisovellus.Controllers
             }
             else ViewBag.LoggedStatus = "Kirjautunut";
             return View();
+            throw new NotImplementedException();
         }
         public ActionResult IndexTyontekija()
         {
@@ -87,10 +89,12 @@ namespace Hyvinvointisovellus.Controllers
         {
             var hymynaama = db.Hymynaama.Include(h => h.Tyontekijat);
             return View(hymynaama.ToList());
+            throw new NotImplementedException();
         }        
         public ActionResult OmattiedotTyonantaja()
         {
             return View();
+            throw new NotImplementedException();
         }
 
 
